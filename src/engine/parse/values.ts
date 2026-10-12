@@ -90,7 +90,7 @@ export function parseAmount(input: string | number): ParsedAmount | null {
     negative = true;
     s = paren[1] as string;
   }
-  const drcr = /\s*(dr|cr)\.?\s*$/i.exec(s);
+  const drcr = /\s*\(?\s*(dr|cr)\s*\)?\.?\s*$/i.exec(s);
   if (drcr) {
     side = (drcr[1] as string).toLowerCase() as 'dr' | 'cr';
     s = s.slice(0, drcr.index);

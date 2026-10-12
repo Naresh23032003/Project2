@@ -70,6 +70,8 @@ describe('parseAmount', () => {
     ['(500.00)', 50000, true, undefined],
     ['500.00 Dr', 50000, false, 'dr'],
     ['500.00Dr.', 50000, false, 'dr'],
+    ['119.00(Dr)', 11900, false, 'dr'],
+    ['50.00 (Cr)', 5000, false, 'cr'],
     ['1,200.00 CR', 120000, false, 'cr'],
     ['0.00', 0, false, undefined],
     ['199', 19900, false, undefined],
