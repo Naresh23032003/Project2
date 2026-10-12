@@ -1,0 +1,3 @@
+#!/bin/sh
+# Remove attribution lines so only the author's own message remains.
+sed -i -E '/^[[:space:]]*(Co-Authored-By|Claude-Session):/Id; /claude\.ai\/code/Id; /Generated with.*Claude/Id' "$1"
