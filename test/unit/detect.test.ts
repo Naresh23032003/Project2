@@ -208,6 +208,13 @@ describe('detect: separation', () => {
   it('puts card bill payments in their own category', () => expect(cat('CC PAYMENT HDFC BANK CARD 4012XXXXXXXX1234', 5000)).toBe('card_bill'));
   it('puts own account transfers in their own category', () => expect(cat('UPI-SELF-SELF@OKAXIS-UTIB0000001-412345678909-TRANSFER TO OWN ACCOUNT', 10000)).toBe('own_transfer'));
   it('puts regular payments to a person in transfers', () => expect(cat('UPI/P2A/233368991817/NOUSHAD B/Kotak', 3000)).toBe('transfer'));
+  it('puts utility bills in their own category', () => {
+    const bills = monthly('2024-01-05', 6, 'ACH D- TORRENT POWER LTD-998877', 0).map((t, i) => ({ ...t, amount: [112000, 98000, 143000, 205000, 77000, 190000][i] as number }));
+    const r = detect(bills);
+    expect(r).toHaveLength(1);
+    expect(r[0]!.category).toBe('bill');
+    expect(r[0]!.confidence).toBe('maybe');
+  });
   it('keeps real subscriptions as subscriptions', () => expect(cat('YOUTUBE PREMIUM GOOGLE *YOUTUBE PREMIUM', 129)).toBe('subscription'));
 });
 

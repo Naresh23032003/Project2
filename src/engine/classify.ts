@@ -7,6 +7,7 @@ const RULES: [Category, RegExp][] = [
   ['insurance', /\bLIC\b|INSURANCE|\bPOLICY\b|HDFC LIFE|SBI LIFE|ICICI PRU(DENTIAL)? LIFE|STAR HEALTH|NIVA BUPA|CARE HEALTH|MAX LIFE|TATA AIA|BAJAJ ALLIANZ|\bACKO\b/],
   ['rent', /\bRENT\b/],
   ['own_transfer', /\bSELF\b|OWN ACC|\bSWEEP\b/],
+  ['bill', /ELECTRICITY|POWER (LTD|CO)|\bBESCOM\b|\bMSEDCL\b|\bBSES\b|TORRENT POWER|TATA POWER|WATER BOARD|MAHANAGAR GAS|INDRAPRASTHA GAS|PIPED GAS|PROPERTY TAX|MUNICIPAL/],
 ];
 
 export function classify(hits: Txn[], norms: Normalized[], merchant?: Merchant): Category {

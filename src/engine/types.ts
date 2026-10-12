@@ -59,7 +59,7 @@ export type ParsedTable = {
 export type NeedsMapping = { status: 'needsMapping'; grid: Grid; headerGuess?: number };
 export type TableResult = ParsedTable | NeedsMapping;
 
-export type Category = 'subscription' | 'emi' | 'rent' | 'sip' | 'insurance' | 'own_transfer' | 'card_bill' | 'transfer';
+export type Category = 'subscription' | 'emi' | 'rent' | 'sip' | 'insurance' | 'own_transfer' | 'card_bill' | 'transfer' | 'bill';
 
 export type Recurring = {
   id: string;
