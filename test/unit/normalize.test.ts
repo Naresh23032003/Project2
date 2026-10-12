@@ -150,3 +150,17 @@ describe('person flag', () => {
     expect(normalize(desc, []).person).toBe(person);
   });
 });
+
+describe('display names', () => {
+  it.each([
+    ['ACH D- HDFC LTD-1234567890', 'HDFC'],
+    ['ACH D- ICICI PRUDENTIAL MUTUAL FUND-123456', 'ICICI Prudential Mutual Fund'],
+    ['ECS-LIC OF INDIA-POLICY 123456', 'LIC Policy'],
+    ['ACH D- LIC HOUSING FINANCE LTD-0012345', 'LIC Housing Finance'],
+    ['ACH D- BAJAJ FINSERV EMI-0012345', 'Bajaj Finserv EMI'],
+    ['CC PAYMENT HDFC BANK CARD 4012XXXXXXXX1234', 'CC Payment HDFC Bank Card'],
+    ['UPI-RAMESH KUMAR-RAMESH.K@OKAXIS-UTIB0000001-412345678908-RENT', 'Ramesh Kumar'],
+  ])('%s shows as %s', (desc, display) => {
+    expect(normalize(desc, []).display).toBe(display);
+  });
+});

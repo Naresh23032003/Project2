@@ -104,8 +104,10 @@ function transferPayee(s: string): string[] {
   return [];
 }
 
+const ACRONYMS = new Set(['HDFC', 'ICICI', 'SBI', 'LIC', 'EMI', 'SIP', 'UPI', 'CC', 'PG', 'ATM', 'IRCTC', 'HPCL', 'BPCL', 'PVR', 'BSNL', 'NPS', 'PPF', 'MF', 'OTT', 'IDFC', 'PNB', 'RBL', 'TCS', 'LLP']);
+
 function titleCase(tokens: string[]): string {
-  return tokens.map((t) => t.charAt(0) + t.slice(1).toLowerCase()).join(' ');
+  return tokens.map((t) => (ACRONYMS.has(t) ? t : t.charAt(0) + t.slice(1).toLowerCase())).join(' ');
 }
 
 const compiled = new WeakMap<Merchant[], { merchant: Merchant; patterns: RegExp[] }[]>();
