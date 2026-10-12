@@ -1,19 +1,8 @@
 import { summarize, type Decision } from './analyze';
 import { formatRupees } from './format';
-import type { Category, Recurring } from './types';
+import { CADENCE_LABEL, TYPE_LABEL } from './labels';
+import type { Recurring } from './types';
 
-const TYPE_LABEL: Record<Category, string> = {
-  subscription: 'Subscription',
-  emi: 'Loan or EMI',
-  rent: 'Rent',
-  sip: 'Investment (SIP)',
-  insurance: 'Insurance',
-  own_transfer: 'Transfer to yourself',
-  card_bill: 'Card bill',
-  transfer: 'Payment to a person',
-  bill: 'Utility bill',
-};
-const CADENCE_LABEL = { weekly: 'Weekly', monthly: 'Monthly', quarterly: 'Quarterly', yearly: 'Yearly' } as const;
 const CHOICE_LABEL: Record<Decision, string> = { keep: 'Keep', cancel: 'Cancel', not: 'Not a subscription' };
 const HEADER = [
   'Service', 'Type', 'How often', 'Typical amount (INR)', 'Per year (INR)', 'First charged', 'Last charged', 'Next expected',

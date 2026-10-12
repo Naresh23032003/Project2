@@ -12,7 +12,13 @@ type TextItem = { str: string; transform: number[]; width: number };
 type PdfPage = { getTextContent(): Promise<{ items: unknown[] }> };
 type PdfDoc = { numPages: number; getPage(n: number): Promise<PdfPage>; destroy?: () => unknown };
 export type PdfJs = {
-  getDocument(src: { data: Uint8Array; password?: string; verbosity?: number }): { promise: Promise<unknown> };
+  getDocument(src: {
+    data: Uint8Array;
+    password?: string;
+    verbosity?: number;
+    isEvalSupported?: boolean;
+    useWorkerFetch?: boolean;
+  }): { promise: Promise<unknown> };
 };
 
 type Piece = { str: string; x: number; w: number };
@@ -92,7 +98,7 @@ function columnFor(p: Piece, cols: Column[]): number {
 export async function extractPdfGrid(pdfjs: PdfJs, data: ArrayBuffer, password?: string): Promise<PdfResult> {
   let doc: PdfDoc;
   try {
-    doc = (await pdfjs.getDocument({ data: new Uint8Array(data.slice(0)), password, verbosity: 0 }).promise) as PdfDoc;
+    doc = (await pdfjs.getDocument({ data: new Uint8Array(data.slice(0)), password, verbosity: 0, isEvalSupported: false, useWorkerFetch: false }).promise) as PdfDoc;
   } catch (e) {
     const err = e as { name?: string; code?: number };
     if (err.name === 'PasswordException') return { status: err.code === 2 ? 'wrongPassword' : 'needsPassword' };
