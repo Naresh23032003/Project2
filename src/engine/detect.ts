@@ -321,42 +321,62 @@ export function detect(txns: Txn[], opts: DetectOptions = {}): Recurring[] {
     const sorted = [...group].sort(byDate);
     const knownId = sorted.find((i) => i.norm.knownId)?.norm.knownId;
     const merchant = knownId ? byId.get(knownId) : undefined;
-    const clusters = mergeSequential(clusterByAmount(sorted));
     const groupKey = merchant?.id ?? mostCommon(sorted.map((i) => i.norm.key));
-    let found = 0;
 
-    clusters.forEach((cluster, n) => {
-      const unique = uniqueByDate(cluster);
-      const fit = bestFit(unique.map((i) => i.txn.date));
-      if (!fit) return;
+    const evaluate = (n: number, unique: Item[], fit: Fit): Recurring | null => {
       const hits = fit.indexes.map((i) => unique[i] as Item);
       const mandate = hits.some((h) => h.norm.mandate);
       const knownSub = merchant?.kind === 'subscription' || merchant?.kind === 'telecom';
+      const variable = merchant?.kind === 'variable';
       const signal = mandate || knownSub;
-      const need = signal ? C.minHitsWithSignal[fit.cadence] : C.minHits[fit.cadence];
-      if (hits.length < need) return;
+      const need = (signal ? C.minHitsWithSignal[fit.cadence] : C.minHits[fit.cadence]) + (variable && !mandate ? C.variableExtraHits : 0);
+      if (hits.length < need) return null;
+      if (!signal && sorted.length >= C.busyMerchantCharges && hits.length / sorted.length < C.busyMerchantMinShare) return null;
 
-      const amounts = hits.map((h) => h.txn.amount);
-      const stable = stableFraction(amounts);
-      if (stable < C.minStableFraction && !signal) return;
+      const stable = stableFraction(hits.map((h) => h.txn.amount));
+      if (stable < C.minStableFraction && !signal) return null;
+      if (variable && !mandate && stable < C.sureStableFraction) return null;
 
       let score = 40 * fit.coverage + Math.min(20, hits.length * 4) + 15 * stable;
       if (mandate) score += 10;
       if (knownSub) score += 15;
       else if (merchant?.kind === 'appstore') score += 5;
       score = Math.round(score);
-      if (score < C.score.maybe) return;
+      if (score < C.score.maybe) return null;
 
       let confidence: Confidence = score >= C.score.sure ? 'sure' : score >= C.score.likely ? 'likely' : 'maybe';
-      const sureOk = hits.length >= 3 && signal && stable >= C.sureStableFraction && merchant?.kind !== 'variable';
+      const sureOk = hits.length >= 3 && signal && stable >= C.sureStableFraction && !variable;
       if (confidence === 'sure' && !sureOk) confidence = 'likely';
       if (stable < C.minStableFraction) confidence = 'maybe';
 
       const extra: string[] = [];
       if (mandate) extra.push('Taken through an autopay or mandate');
       if (knownSub && merchant) extra.push(`${merchant.name} is a known subscription service`);
-      results.push(toRecurring(`${groupKey}#${n}`, sorted, hits, fit, merchant, asOf, score, confidence, extra));
-      found++;
+      return toRecurring(`${groupKey}#${n}`, sorted, hits, fit, merchant, asOf, score, confidence, extra);
+    };
+
+    let found = 0;
+    const whole = uniqueByDate(sorted);
+    if (whole.length === sorted.length && whole.length >= 2) {
+      const fit = bestFit(whole.map((i) => i.txn.date));
+      if (fit && fit.indexes.length >= Math.ceil(C.wholeSeriesCoverage * whole.length)) {
+        const r = evaluate(0, whole, fit);
+        if (r) {
+          results.push(r);
+          continue;
+        }
+      }
+    }
+
+    mergeSequential(clusterByAmount(sorted)).forEach((cluster, n) => {
+      const unique = uniqueByDate(cluster);
+      const fit = bestFit(unique.map((i) => i.txn.date));
+      if (!fit) return;
+      const r = evaluate(n, unique, fit);
+      if (r) {
+        results.push(r);
+        found++;
+      }
     });
 
     if (found === 0 && merchant?.kind === 'subscription' && sorted.length === 1) {

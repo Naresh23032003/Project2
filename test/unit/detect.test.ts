@@ -134,6 +134,54 @@ describe('detect: amounts', () => {
   });
 });
 
+describe('detect: variable amounts', () => {
+  const swing = (start: string, amounts: number[], desc: string) => amounts.map((a, i) => tx(addMonths(start, i), desc, a));
+
+  it('recognises a mandate bill whose amount swings more than 2x as one series', () => {
+    const r = detect(swing('2024-01-14', [900, 2400, 1100, 1900, 700, 2300, 1300, 1700], 'ACH D- TORRENT POWER LTD-998877'));
+    expect(r).toHaveLength(1);
+    expect(r[0]!.hits).toHaveLength(8);
+    expect(r[0]!.category).toBe('bill');
+    expect(r[0]!.confidence).toBe('maybe');
+  });
+
+  it('does not split a mandate bill into several amount clusters', () => {
+    const r = detect(swing('2024-01-12', [700, 1900, 1300, 800, 1750, 1100, 1900, 760, 1500, 1200, 900, 1650], 'ACH D- BESCOM-998877'));
+    expect(r).toHaveLength(1);
+    expect(r[0]!.hits).toHaveLength(12);
+  });
+
+  it('still splits two interleaved subscriptions at one merchant', () => {
+    const gp = 'UPI-GOOGLE PLAY-GOOGLEPLAY@AXISBANK-UTIB0000002-412345678902-UPI';
+    expect(detect([...monthly('2024-01-05', 5, gp, 129), ...monthly('2024-01-12', 5, gp, 199)])).toHaveLength(2);
+  });
+
+  it('does not flag a few identical fuel fill-ups at a variable-spend merchant', () => {
+    const fuel = 'UPI/P2M/412345678901/INDIAN OIL FUEL STATION/Pay to/Axis Bank';
+    const r = detect([tx('2024-01-03', fuel, 2000), tx('2024-02-05', fuel, 2000), tx('2024-03-02', fuel, 2000), tx('2024-04-04', fuel, 2000)]);
+    expect(r).toEqual([]);
+  });
+});
+
+describe('detect: coincidences in frequent spending', () => {
+  it('ignores a monthly-looking triple buried in many other payments at the same merchant', () => {
+    const canteen = 'UPI/P2M/412345678901/CAMPUS CANTEEN/Pay to/Axis Bank';
+    const noise: Txn[] = [];
+    let day = 1;
+    for (let i = 0; i < 36; i++) {
+      const d = new Date(Date.UTC(2024, 0, 1 + day));
+      noise.push(tx(d.toISOString().slice(0, 10), canteen, 70 + ((i * 17) % 70)));
+      day += 4 + (i % 3);
+    }
+    const triple = [tx('2024-01-08', canteen, 49), tx('2024-02-08', canteen, 49), tx('2024-03-09', canteen, 49)];
+    expect(detect([...noise, ...triple])).toEqual([]);
+  });
+
+  it('still finds a real series that is most of what a merchant gets', () => {
+    expect(detect(monthly('2024-01-05', 12, ACME_UPI, 299))).toHaveLength(1);
+  });
+});
+
 describe('detect: status and noise', () => {
   it('marks a subscription that stopped as stopped', () => {
     const r = detect([...monthly('2024-01-05', 4, NETFLIX_ACH, 199), tx('2024-10-01', 'SOMETHING ELSE', 50)]);

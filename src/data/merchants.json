@@ -1,43 +1,568 @@
 [
-  { "id": "netflix", "name": "Netflix", "kind": "subscription", "patterns": ["\\bNETFLIX\\b"], "cadence": "monthly" },
-  { "id": "spotify", "name": "Spotify", "kind": "subscription", "patterns": ["\\bSPOTIFY\\b"], "cadence": "monthly" },
-  { "id": "youtube-premium", "name": "YouTube Premium", "kind": "subscription", "patterns": ["YOUTUBE ?(PREMIUM|MUSIC)", "\\bYOUTUBEPREMIUM\\b"], "cadence": "monthly" },
-  { "id": "google-one", "name": "Google One", "kind": "subscription", "patterns": ["GOOGLE ONE\\b"], "cadence": "monthly" },
-  { "id": "google-play", "name": "Google Play", "kind": "appstore", "patterns": ["GOOGLE PLAY", "\\bGOOGLEPLAY\\b"] },
-  { "id": "apple", "name": "Apple", "kind": "appstore", "patterns": ["\\bAPPLE\\b", "\\bITUNES\\b", "\\bICLOUD\\b"] },
-  { "id": "amazon-prime", "name": "Amazon Prime", "kind": "subscription", "patterns": ["AMAZON PRIME", "PRIME VIDEO", "\\bAMAZONPRIME\\b"], "cadence": "yearly" },
-  { "id": "hotstar", "name": "Disney+ Hotstar", "kind": "subscription", "patterns": ["\\bHOTSTAR\\b", "JIOHOTSTAR", "DISNEY ?PLUS"], "cadence": "monthly" },
-  { "id": "jiocinema", "name": "JioCinema", "kind": "subscription", "patterns": ["JIO ?CINEMA"], "cadence": "monthly" },
-  { "id": "sonyliv", "name": "SonyLIV", "kind": "subscription", "patterns": ["\\bSONY ?LIV\\b"], "cadence": "monthly" },
-  { "id": "zee5", "name": "ZEE5", "kind": "subscription", "patterns": ["\\bZEE ?5\\b"], "cadence": "monthly" },
-  { "id": "hungama", "name": "Hungama", "kind": "subscription", "patterns": ["\\bHUNGAMA\\b"], "cadence": "monthly" },
-  { "id": "gaana", "name": "Gaana", "kind": "subscription", "patterns": ["\\bGAANA\\b"], "cadence": "monthly" },
-  { "id": "jiosaavn", "name": "JioSaavn", "kind": "subscription", "patterns": ["JIO ?SAAVN", "\\bSAAVN\\b"], "cadence": "monthly" },
-  { "id": "microsoft-365", "name": "Microsoft 365", "kind": "subscription", "patterns": ["MICROSOFT 365", "OFFICE 365", "\\bMSBILL\\b", "\\bMICROSOFT\\b"], "cadence": "yearly" },
-  { "id": "adobe", "name": "Adobe", "kind": "subscription", "patterns": ["\\bADOBE\\b"], "cadence": "monthly" },
-  { "id": "canva", "name": "Canva", "kind": "subscription", "patterns": ["\\bCANVA\\b"], "cadence": "monthly" },
-  { "id": "chatgpt", "name": "ChatGPT", "kind": "subscription", "patterns": ["\\bOPENAI\\b", "\\bCHATGPT\\b"], "cadence": "monthly" },
-  { "id": "linkedin-premium", "name": "LinkedIn Premium", "kind": "subscription", "patterns": ["\\bLINKEDIN\\b"], "cadence": "monthly" },
-  { "id": "dropbox", "name": "Dropbox", "kind": "subscription", "patterns": ["\\bDROPBOX\\b"], "cadence": "monthly" },
-  { "id": "notion", "name": "Notion", "kind": "subscription", "patterns": ["\\bNOTION\\b"], "cadence": "monthly" },
-  { "id": "times-prime", "name": "Times Prime", "kind": "subscription", "patterns": ["TIMES PRIME"], "cadence": "yearly" },
-  { "id": "the-hindu", "name": "The Hindu", "kind": "subscription", "patterns": ["THE HINDU", "\\bTHEHINDU\\b"], "cadence": "yearly" },
-  { "id": "audible", "name": "Audible", "kind": "subscription", "patterns": ["\\bAUDIBLE\\b"], "cadence": "monthly" },
-  { "id": "swiggy-one", "name": "Swiggy One", "kind": "subscription", "patterns": ["SWIGGY ONE"], "cadence": "monthly" },
-  { "id": "zomato-gold", "name": "Zomato Gold", "kind": "subscription", "patterns": ["ZOMATO GOLD"], "cadence": "monthly" },
-  { "id": "cult-fit", "name": "Cult.fit", "kind": "subscription", "patterns": ["CULT ?FIT"], "cadence": "monthly" },
-  { "id": "tata-play", "name": "Tata Play", "kind": "subscription", "patterns": ["TATA ?(PLAY|SKY)"], "cadence": "monthly" },
-  { "id": "airtel", "name": "Airtel", "kind": "telecom", "patterns": ["\\bAIRTEL\\b"] },
-  { "id": "jio", "name": "Jio", "kind": "telecom", "patterns": ["\\bJIO\\b"] },
-  { "id": "vi", "name": "Vi", "kind": "telecom", "patterns": ["VODAFONE", "\\bVI (POSTPAID|PREPAID)\\b"] },
-  { "id": "bsnl", "name": "BSNL", "kind": "telecom", "patterns": ["\\bBSNL\\b"] },
-  { "id": "swiggy", "name": "Swiggy", "kind": "variable", "patterns": ["\\bSWIGGY\\b"] },
-  { "id": "zomato", "name": "Zomato", "kind": "variable", "patterns": ["\\bZOMATO\\b"] },
-  { "id": "uber", "name": "Uber", "kind": "variable", "patterns": ["\\bUBER\\b"] },
-  { "id": "ola", "name": "Ola", "kind": "variable", "patterns": ["\\bOLA ?(CABS|MONEY)?\\b"] },
-  { "id": "blinkit", "name": "Blinkit", "kind": "variable", "patterns": ["\\bBLINKIT\\b"] },
-  { "id": "zepto", "name": "Zepto", "kind": "variable", "patterns": ["\\bZEPTO\\b"] },
-  { "id": "bigbasket", "name": "BigBasket", "kind": "variable", "patterns": ["\\bBIG ?BASKET\\b"] },
-  { "id": "amazon", "name": "Amazon", "kind": "variable", "patterns": ["\\bAMAZON\\b(?! PAY)"] },
-  { "id": "flipkart", "name": "Flipkart", "kind": "variable", "patterns": ["\\bFLIPKART\\b"] }
+  {
+    "id": "netflix",
+    "name": "Netflix",
+    "kind": "subscription",
+    "patterns": [
+      "\\bNETFLIX\\b"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "spotify",
+    "name": "Spotify",
+    "kind": "subscription",
+    "patterns": [
+      "\\bSPOTIFY\\b"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "youtube-premium",
+    "name": "YouTube Premium",
+    "kind": "subscription",
+    "patterns": [
+      "YOUTUBE ?(PREMIUM|MUSIC)",
+      "\\bYOUTUBEPREMIUM\\b"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "google-one",
+    "name": "Google One",
+    "kind": "subscription",
+    "patterns": [
+      "GOOGLE ONE\\b"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "google-play",
+    "name": "Google Play",
+    "kind": "appstore",
+    "patterns": [
+      "GOOGLE PLAY",
+      "\\bGOOGLEPLAY\\b"
+    ]
+  },
+  {
+    "id": "apple",
+    "name": "Apple",
+    "kind": "appstore",
+    "patterns": [
+      "\\bAPPLE\\b",
+      "\\bITUNES\\b",
+      "\\bICLOUD\\b"
+    ]
+  },
+  {
+    "id": "amazon-prime",
+    "name": "Amazon Prime",
+    "kind": "subscription",
+    "patterns": [
+      "AMAZON PRIME",
+      "PRIME VIDEO",
+      "\\bAMAZONPRIME\\b"
+    ],
+    "cadence": "yearly"
+  },
+  {
+    "id": "hotstar",
+    "name": "Disney+ Hotstar",
+    "kind": "subscription",
+    "patterns": [
+      "\\bHOTSTAR\\b",
+      "JIOHOTSTAR",
+      "DISNEY ?PLUS"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "jiocinema",
+    "name": "JioCinema",
+    "kind": "subscription",
+    "patterns": [
+      "JIO ?CINEMA"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "sonyliv",
+    "name": "SonyLIV",
+    "kind": "subscription",
+    "patterns": [
+      "\\bSONY ?LIV\\b"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "zee5",
+    "name": "ZEE5",
+    "kind": "subscription",
+    "patterns": [
+      "\\bZEE ?5\\b"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "hungama",
+    "name": "Hungama",
+    "kind": "subscription",
+    "patterns": [
+      "\\bHUNGAMA\\b"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "gaana",
+    "name": "Gaana",
+    "kind": "subscription",
+    "patterns": [
+      "\\bGAANA\\b"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "jiosaavn",
+    "name": "JioSaavn",
+    "kind": "subscription",
+    "patterns": [
+      "JIO ?SAAVN",
+      "\\bSAAVN\\b"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "microsoft-365",
+    "name": "Microsoft 365",
+    "kind": "subscription",
+    "patterns": [
+      "MICROSOFT 365",
+      "OFFICE 365",
+      "\\bMSBILL\\b",
+      "\\bMICROSOFT\\b"
+    ],
+    "cadence": "yearly"
+  },
+  {
+    "id": "adobe",
+    "name": "Adobe",
+    "kind": "subscription",
+    "patterns": [
+      "\\bADOBE\\b"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "canva",
+    "name": "Canva",
+    "kind": "subscription",
+    "patterns": [
+      "\\bCANVA\\b"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "chatgpt",
+    "name": "ChatGPT",
+    "kind": "subscription",
+    "patterns": [
+      "\\bOPENAI\\b",
+      "\\bCHATGPT\\b"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "linkedin-premium",
+    "name": "LinkedIn Premium",
+    "kind": "subscription",
+    "patterns": [
+      "\\bLINKEDIN\\b"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "dropbox",
+    "name": "Dropbox",
+    "kind": "subscription",
+    "patterns": [
+      "\\bDROPBOX\\b"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "notion",
+    "name": "Notion",
+    "kind": "subscription",
+    "patterns": [
+      "\\bNOTION\\b"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "times-prime",
+    "name": "Times Prime",
+    "kind": "subscription",
+    "patterns": [
+      "TIMES PRIME"
+    ],
+    "cadence": "yearly"
+  },
+  {
+    "id": "the-hindu",
+    "name": "The Hindu",
+    "kind": "subscription",
+    "patterns": [
+      "THE HINDU",
+      "\\bTHEHINDU\\b"
+    ],
+    "cadence": "yearly"
+  },
+  {
+    "id": "audible",
+    "name": "Audible",
+    "kind": "subscription",
+    "patterns": [
+      "\\bAUDIBLE\\b"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "swiggy-one",
+    "name": "Swiggy One",
+    "kind": "subscription",
+    "patterns": [
+      "SWIGGY ONE"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "zomato-gold",
+    "name": "Zomato Gold",
+    "kind": "subscription",
+    "patterns": [
+      "ZOMATO GOLD"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "cult-fit",
+    "name": "Cult.fit",
+    "kind": "subscription",
+    "patterns": [
+      "CULT ?FIT"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "tata-play",
+    "name": "Tata Play",
+    "kind": "subscription",
+    "patterns": [
+      "TATA ?(PLAY|SKY)"
+    ],
+    "cadence": "monthly"
+  },
+  {
+    "id": "airtel",
+    "name": "Airtel",
+    "kind": "telecom",
+    "patterns": [
+      "\\bAIRTEL\\b"
+    ]
+  },
+  {
+    "id": "jio",
+    "name": "Jio",
+    "kind": "telecom",
+    "patterns": [
+      "\\bJIO\\b"
+    ]
+  },
+  {
+    "id": "vi",
+    "name": "Vi",
+    "kind": "telecom",
+    "patterns": [
+      "VODAFONE",
+      "\\bVI (POSTPAID|PREPAID)\\b"
+    ]
+  },
+  {
+    "id": "bsnl",
+    "name": "BSNL",
+    "kind": "telecom",
+    "patterns": [
+      "\\bBSNL\\b"
+    ]
+  },
+  {
+    "id": "swiggy",
+    "name": "Swiggy",
+    "kind": "variable",
+    "patterns": [
+      "\\bSWIGGY\\b"
+    ]
+  },
+  {
+    "id": "zomato",
+    "name": "Zomato",
+    "kind": "variable",
+    "patterns": [
+      "\\bZOMATO\\b"
+    ]
+  },
+  {
+    "id": "uber",
+    "name": "Uber",
+    "kind": "variable",
+    "patterns": [
+      "\\bUBER\\b"
+    ]
+  },
+  {
+    "id": "ola",
+    "name": "Ola",
+    "kind": "variable",
+    "patterns": [
+      "\\bOLA ?(CABS|MONEY)?\\b"
+    ]
+  },
+  {
+    "id": "blinkit",
+    "name": "Blinkit",
+    "kind": "variable",
+    "patterns": [
+      "\\bBLINKIT\\b"
+    ]
+  },
+  {
+    "id": "zepto",
+    "name": "Zepto",
+    "kind": "variable",
+    "patterns": [
+      "\\bZEPTO\\b"
+    ]
+  },
+  {
+    "id": "bigbasket",
+    "name": "BigBasket",
+    "kind": "variable",
+    "patterns": [
+      "\\bBIG ?BASKET\\b"
+    ]
+  },
+  {
+    "id": "amazon",
+    "name": "Amazon",
+    "kind": "variable",
+    "patterns": [
+      "\\bAMAZON\\b(?! PAY)"
+    ]
+  },
+  {
+    "id": "flipkart",
+    "name": "Flipkart",
+    "kind": "variable",
+    "patterns": [
+      "\\bFLIPKART\\b"
+    ]
+  },
+  {
+    "id": "indian-oil",
+    "name": "Indian Oil",
+    "kind": "variable",
+    "patterns": [
+      "INDIAN ?OIL"
+    ]
+  },
+  {
+    "id": "hpcl",
+    "name": "HPCL",
+    "kind": "variable",
+    "patterns": [
+      "\\bHPCL\\b",
+      "HINDUSTAN PETROLEUM"
+    ]
+  },
+  {
+    "id": "bpcl",
+    "name": "BPCL",
+    "kind": "variable",
+    "patterns": [
+      "\\bBPCL\\b",
+      "BHARAT PETROLEUM"
+    ]
+  },
+  {
+    "id": "shell",
+    "name": "Shell",
+    "kind": "variable",
+    "patterns": [
+      "\\bSHELL\\b"
+    ]
+  },
+  {
+    "id": "fuel",
+    "name": "Fuel station",
+    "kind": "variable",
+    "patterns": [
+      "\\bFUEL\\b",
+      "\\bPETROL\\b",
+      "\\bFILLING STATION\\b"
+    ]
+  },
+  {
+    "id": "reliance-fresh",
+    "name": "Reliance Fresh",
+    "kind": "variable",
+    "patterns": [
+      "RELIANCE (FRESH|SMART|RETAIL)"
+    ]
+  },
+  {
+    "id": "dmart",
+    "name": "DMart",
+    "kind": "variable",
+    "patterns": [
+      "\\bD ?MART\\b",
+      "AVENUE SUPERMARTS"
+    ]
+  },
+  {
+    "id": "more-retail",
+    "name": "More",
+    "kind": "variable",
+    "patterns": [
+      "\\bMORE (RETAIL|SUPERMARKET)"
+    ]
+  },
+  {
+    "id": "irctc",
+    "name": "IRCTC",
+    "kind": "variable",
+    "patterns": [
+      "\\bIRCTC\\b"
+    ]
+  },
+  {
+    "id": "makemytrip",
+    "name": "MakeMyTrip",
+    "kind": "variable",
+    "patterns": [
+      "MAKE ?MY ?TRIP"
+    ]
+  },
+  {
+    "id": "rapido",
+    "name": "Rapido",
+    "kind": "variable",
+    "patterns": [
+      "\\bRAPIDO\\b"
+    ]
+  },
+  {
+    "id": "myntra",
+    "name": "Myntra",
+    "kind": "variable",
+    "patterns": [
+      "\\bMYNTRA\\b"
+    ]
+  },
+  {
+    "id": "ajio",
+    "name": "Ajio",
+    "kind": "variable",
+    "patterns": [
+      "\\bAJIO\\b"
+    ]
+  },
+  {
+    "id": "nykaa",
+    "name": "Nykaa",
+    "kind": "variable",
+    "patterns": [
+      "\\bNYKAA\\b"
+    ]
+  },
+  {
+    "id": "meesho",
+    "name": "Meesho",
+    "kind": "variable",
+    "patterns": [
+      "\\bMEESHO\\b"
+    ]
+  },
+  {
+    "id": "dominos",
+    "name": "Domino's",
+    "kind": "variable",
+    "patterns": [
+      "DOMINO"
+    ]
+  },
+  {
+    "id": "starbucks",
+    "name": "Starbucks",
+    "kind": "variable",
+    "patterns": [
+      "STARBUCKS"
+    ]
+  },
+  {
+    "id": "mcdonalds",
+    "name": "McDonald's",
+    "kind": "variable",
+    "patterns": [
+      "MC ?DONALD"
+    ]
+  },
+  {
+    "id": "bookmyshow",
+    "name": "BookMyShow",
+    "kind": "variable",
+    "patterns": [
+      "BOOK ?MY ?SHOW"
+    ]
+  },
+  {
+    "id": "pvr",
+    "name": "PVR",
+    "kind": "variable",
+    "patterns": [
+      "\\bPVR\\b"
+    ]
+  },
+  {
+    "id": "decathlon",
+    "name": "Decathlon",
+    "kind": "variable",
+    "patterns": [
+      "DECATHLON"
+    ]
+  },
+  {
+    "id": "medplus",
+    "name": "MedPlus",
+    "kind": "variable",
+    "patterns": [
+      "MEDPLUS"
+    ]
+  },
+  {
+    "id": "apollo-pharmacy",
+    "name": "Apollo Pharmacy",
+    "kind": "variable",
+    "patterns": [
+      "APOLLO PHARMACY"
+    ]
+  },
+  {
+    "id": "pharmeasy",
+    "name": "PharmEasy",
+    "kind": "variable",
+    "patterns": [
+      "PHARMEASY"
+    ]
+  }
 ]
