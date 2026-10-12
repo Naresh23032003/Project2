@@ -58,3 +58,27 @@ export type ParsedTable = {
 };
 export type NeedsMapping = { status: 'needsMapping'; grid: Grid; headerGuess?: number };
 export type TableResult = ParsedTable | NeedsMapping;
+
+export type Category = 'subscription' | 'emi' | 'rent' | 'sip' | 'insurance' | 'own_transfer' | 'card_bill' | 'transfer';
+
+export type Recurring = {
+  id: string;
+  merchantKey: string;
+  display: string;
+  knownId?: string;
+  cadence: Cadence;
+  typicalAmount: number;
+  yearlyCost: number;
+  hits: Txn[];
+  firstDate: string;
+  lastDate: string;
+  nextExpected: string;
+  status: 'active' | 'stopped';
+  confidence: Confidence;
+  score: number;
+  reasons: string[];
+  priceChanges: { date: string; from: number; to: number }[];
+  missed: number;
+  forgotten: boolean;
+  category: Category;
+};
