@@ -1,4 +1,5 @@
-import type { Analysis, Decision } from '../engine/analyze';
+import type { Analysis } from '../engine/analyze';
+import type { Decision } from '../engine/summary';
 import type { Bank, ColumnMapping, Grid, Txn } from '../engine/types';
 
 export type EntryState = 'queued' | 'reading' | 'ok' | 'needsPassword' | 'wrongPassword' | 'needsMapping' | 'scanned' | 'unsupported' | 'error';

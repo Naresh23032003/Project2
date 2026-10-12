@@ -1,4 +1,4 @@
-import type { Decision } from './analyze';
+import type { Decision } from './summary';
 
 type Store = Pick<Storage, 'getItem' | 'setItem' | 'removeItem'>;
 export type Choices = Record<string, Decision>;

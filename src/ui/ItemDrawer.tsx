@@ -1,5 +1,5 @@
 import { ExternalLink, X } from 'lucide-react';
-import type { Decision } from '../engine/analyze';
+import type { Decision } from '../engine/summary';
 import { guideFor, type CancelGuide } from '../engine/cancel';
 import { formatRupees } from '../engine/format';
 import { CADENCE_LABEL, TYPE_LABEL, formatDate } from '../engine/labels';

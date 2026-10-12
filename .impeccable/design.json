@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-12T00:00:00Z",
+  "title": "Design System: Dripcheck",
+  "extensions": {
+    "colorMeta": {
+      "pillar-box-red": { "role": "primary", "displayName": "Pillar-box red", "canonical": "#C8102E" },
+      "airmail-navy": { "role": "secondary", "displayName": "Airmail navy", "canonical": "#121A33" },
+      "postal-yellow": { "role": "secondary", "displayName": "Postal yellow", "canonical": "#FFC72C" },
+      "savings-green": { "role": "secondary", "displayName": "Savings green", "canonical": "#0B7A4B" },
+      "postmark-ink": { "role": "tertiary", "displayName": "Postmark ink", "canonical": "#2B3190" },
+      "sorting-table-grey": { "role": "neutral", "displayName": "Sorting-table grey", "canonical": "#F5F6F8" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Landing headline." },
+      "sentence": { "displayName": "Sentence", "purpose": "The results headline written as a sentence." }
+    },
+    "shadows": [{ "name": "float", "value": "0 12px 40px rgb(18 26 51 / 0.18)", "purpose": "The details panel over the page." }],
+    "motion": [{ "name": "stamp-land", "value": "280ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The postmark landing on a Cancel mark." }],
+    "breakpoints": [{ "name": "wide", "value": "900px" }, { "name": "small", "value": "640px" }]
+  },
+  "components": [
+    {
+      "name": "Primary Button", "kind": "button", "refersTo": "button-primary", "description": "The one main action on a screen.",
+      "html": "<button class=\"ds-btn-primary\">Try with sample data</button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:8px;border:1px solid transparent;background:#121a33;color:#f5f6f8;font-weight:600;font-size:15px;cursor:pointer}.ds-btn-primary:hover{background:#2a2540}.ds-btn-primary:focus-visible{outline:3px solid #121a33;outline-offset:2px}"
+    },
+    {
+      "name": "Filter chip", "kind": "chip", "refersTo": "chip", "description": "Narrows the list. Shows a count.",
+      "html": "<button class=\"ds-chip\" aria-pressed=\"true\">All <span>7</span></button>",
+      "css": ".ds-chip{display:inline-flex;gap:6px;align-items:center;min-height:36px;padding:0 14px;border-radius:999px;border:1px solid #121a33;background:#121a33;color:#f5f6f8;font-weight:500;font-size:15px;cursor:pointer}"
+    },
+    {
+      "name": "Choice control", "kind": "custom", "refersTo": "choice-cancel-selected", "description": "Keep, Cancel or Not a subscription.",
+      "html": "<div class=\"ds-choice\"><span>Keep</span><span class=\"on\">Cancel</span><span>Not a subscription</span></div>",
+      "css": ".ds-choice{display:inline-flex;border:1px solid #dde1ea;border-radius:10px;overflow:hidden;background:#fff;font-weight:600;font-size:14px}.ds-choice span{padding:9px 12px;border-left:1px solid #dde1ea}.ds-choice span:first-child{border-left:0}.ds-choice .on{background:#c8102e;color:#fff}"
+    },
+    {
+      "name": "Postmark", "kind": "custom", "description": "Lands on a row when it is marked Cancel.",
+      "html": "<svg class=\"ds-stamp\" viewBox=\"0 0 64 64\" width=\"72\" height=\"72\"><circle cx=\"32\" cy=\"32\" r=\"29\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"/><circle cx=\"32\" cy=\"32\" r=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"32\" y=\"25.5\" text-anchor=\"middle\" font-size=\"10.5\" font-weight=\"700\" fill=\"currentColor\">Cancel</text><text x=\"32\" y=\"39\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"currentColor\">8 Sep</text><path d=\"M6 46 q5.5-5 11 0 t11 0 t11 0 t11 0 t11 0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\"/></svg>",
+      "css": ".ds-stamp{color:#2b3190;transform:rotate(-8deg);opacity:.88}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Sorting Office",
+    "overview": "Plain work, done carefully, with one satisfying gesture. India Post supplies the colour and the one move. Everything around the stamp stays quiet.",
+    "keyCharacteristics": ["One typeface family, self-hosted, with a metric-matched fallback.", "Committed colour in the shell, a neutral ground below.", "One gesture: the postmark.", "Standard controls everywhere."],
+    "rules": [
+      { "name": "The One Gesture Rule", "body": "The stamp is the only decorative motion in the product. If another effect wants to exist, it loses.", "section": "colors" },
+      { "name": "The Reason Rule", "body": "Colour never carries meaning alone. Every state also has a word.", "section": "colors" },
+      { "name": "The Single Job Rule", "body": "Each accent colour has one job. Yellow flags, green keeps, red cancels, violet stamps.", "section": "colors" },
+      { "name": "The Sentence Case Rule", "body": "No all caps anywhere. Weight and size carry hierarchy.", "section": "typography" },
+      { "name": "The Tabular Rule", "body": "Every rupee amount is set in tabular lining figures.", "section": "typography" }
+    ],
+    "dos": ["Do show the reason beside every result.", "Do keep the savings readout in view while the person marks items.", "Do use the stamp only when an item is marked Cancel."],
+    "donts": ["Don't use brand logos, stock art, gradient blobs, glass or emoji.", "Don't turn the screen into a post office costume.", "Don't colour a state without also naming it in words."]
+  }
+}

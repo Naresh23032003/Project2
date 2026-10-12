@@ -8,6 +8,33 @@ function currentTheme(): 'light' | 'dark' {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
+type ViewProps = { theme: 'light' | 'dark'; onToggle: () => void };
+
+export function HeaderView({ theme, onToggle }: ViewProps) {
+  return (
+    <header className="app-header on-red">
+      <div className="page">
+        <a className="wordmark" href="#/">
+          <LogoMark />
+          Dripcheck
+        </a>
+        <nav aria-label="Main" className="main-nav">
+          <a className="header-link" href="#/guides">Cancel guides</a>
+          <a className="header-link" href="#/privacy">Privacy</a>
+        </nav>
+        <span className="header-spacer" />
+        <a className="badge-privacy" href="#/privacy" data-testid="privacy-badge">
+          <Lock aria-hidden="true" />
+          Runs on your device. Nothing is uploaded.
+        </a>
+        <button type="button" className="icon-btn" onClick={onToggle} aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}>
+          {theme === 'dark' ? <Sun aria-hidden="true" /> : <Moon aria-hidden="true" />}
+        </button>
+      </div>
+    </header>
+  );
+}
+
 export function Header() {
   const [theme, setTheme] = useState<'light' | 'dark'>(currentTheme);
   useEffect(() => {
@@ -28,26 +55,5 @@ export function Header() {
     setTheme(next);
   };
 
-  return (
-    <header className="app-header on-red">
-      <div className="page">
-        <a className="wordmark" href="#/">
-          <LogoMark />
-          Dripcheck
-        </a>
-        <nav aria-label="Main" style={{ display: 'flex', gap: 4 }}>
-          <a className="header-link" href="#/guides">Cancel guides</a>
-          <a className="header-link" href="#/privacy">Privacy</a>
-        </nav>
-        <span className="header-spacer" />
-        <a className="badge-privacy" href="#/privacy" data-testid="privacy-badge">
-          <Lock aria-hidden="true" />
-          Runs on your device. Nothing is uploaded.
-        </a>
-        <button type="button" className="icon-btn" onClick={toggle} aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}>
-          {theme === 'dark' ? <Sun aria-hidden="true" /> : <Moon aria-hidden="true" />}
-        </button>
-      </div>
-    </header>
-  );
+  return <HeaderView theme={theme} onToggle={toggle} />;
 }

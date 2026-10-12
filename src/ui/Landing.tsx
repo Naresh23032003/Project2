@@ -15,7 +15,7 @@ export function Landing({ onFiles, onSample, problem }: Props) {
       {problem}
       <DropZone onFiles={onFiles} onSample={onSample} />
 
-      <p className="notice" style={{ marginTop: 16 }}>
+      <p className="notice notice-spaced">
         <Info aria-hidden="true" />
         <span>Use at least 3 months of statements. 6 to 12 months also catches the yearly ones.</span>
       </p>
@@ -38,7 +38,7 @@ export function Landing({ onFiles, onSample, problem }: Props) {
         </section>
       </div>
 
-      <p className="hint" style={{ marginTop: 40, maxWidth: '62ch' }}>
+      <p className="hint footnote">
         Reads exports from HDFC, SBI, ICICI, Axis and Kotak, plus most card statements. If your file has another layout, you'll be asked
         which column is which. Not sure where to find the file?{' '}
         <a href="#/guides#download">Here's how to download one from your bank.</a>

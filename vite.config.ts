@@ -1,12 +1,43 @@
 /// <reference types="vitest/config" />
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
+import { readFileSync } from 'node:fs';
+import { defineConfig, type Plugin } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
+
+// Puts the tiny theme script inline so the first paint doesn't wait for a request. The CSP allows it by hash,
+// and test/unit/csp.test.ts fails if the file and the hash in vercel.json ever disagree.
+function inlineThemeInit(): Plugin {
+  return {
+    name: 'inline-theme-init',
+    apply: 'build',
+    transformIndexHtml: {
+      order: 'pre',
+      handler(html) {
+        const code = readFileSync('public/theme-init.js', 'utf8');
+        return html.replace('<script src="/theme-init.js"></script>', () => '<script>' + code + '</script>');
+      },
+    },
+  };
+}
+
+// Asks the browser for the main font file up front, so the first paint uses it.
+function preloadFont(): Plugin {
+  return {
+    name: 'preload-main-font',
+    transformIndexHtml(_html, ctx) {
+      const file = Object.keys(ctx.bundle ?? {}).find((f) => /bricolage-grotesque-latin-wght-normal.*\.woff2$/.test(f));
+      if (!file) return [];
+      return [{ tag: 'link', attrs: { rel: 'preload', as: 'font', type: 'font/woff2', href: `/${file}`, crossorigin: '' }, injectTo: 'head' }];
+    },
+  };
+}
 
 export default defineConfig({
   plugins: [
     react(),
+    inlineThemeInit(),
+    preloadFont(),
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',

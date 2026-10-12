@@ -1,5 +1,5 @@
 import { ArrowDown, ArrowUp } from 'lucide-react';
-import type { Decision } from '../engine/analyze';
+import type { Decision } from '../engine/summary';
 import { formatRupees } from '../engine/format';
 import { CADENCE_LABEL, formatDate } from '../engine/labels';
 import type { Recurring } from '../engine/types';

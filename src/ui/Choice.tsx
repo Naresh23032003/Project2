@@ -1,4 +1,4 @@
-import type { Decision } from '../engine/analyze';
+import type { Decision } from '../engine/summary';
 
 type Props = { id: string; name: string; value: Decision | undefined; onChange: (d: Decision | null) => void };
 

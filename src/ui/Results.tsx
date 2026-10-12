@@ -1,6 +1,7 @@
 import { Copy, Download, FilePlus2, Image, Info, RotateCcw, TriangleAlert } from 'lucide-react';
 import { useMemo, useRef, useState } from 'react';
-import { summarize, type Analysis, type Decision } from '../engine/analyze';
+import type { Analysis } from '../engine/analyze';
+import { summarize, type Decision } from '../engine/summary';
 import { exportCsv, summaryText } from '../engine/export';
 import { formatRupees } from '../engine/format';
 import { formatDate } from '../engine/labels';

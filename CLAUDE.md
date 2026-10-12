@@ -53,3 +53,12 @@ Work isn't done until all of this passes:
 - Network-proof E2E: no request leaves the site's own origin during a full run.
 - Screenshots at 360px and 1440px, light and dark, actually viewed.
 - axe: zero serious issues. Full keyboard flow. Visible focus. Lighthouse 90+ on mobile.
+
+## Commands and gotchas
+
+- `npm test` runs unit and golden tests. `npm run build` also pre-renders the landing page. `npm run test:e2e` needs a build first.
+- The e2e server (`scripts/serve-dist.mjs`) applies the headers from `vercel.json`. It reads the file once, so restart it after changing the CSP.
+- The CSP allows one inline script (the theme initialiser) by hash. If `public/theme-init.js` changes, update the hash in `vercel.json`. `test/unit/csp.test.ts` checks.
+- Pre-rendered markup must not use inline `style` attributes. Use classes.
+- In this sandbox the browser is `/opt/pw-browsers/chromium`. Never run `playwright install`.
+- Do not `pkill -f` a pattern that appears in your own command line. Kill by port.

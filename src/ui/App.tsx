@@ -1,20 +1,16 @@
-import { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
-import type { Decision } from '../engine/analyze';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
+import type { Decision } from '../engine/summary';
 import type { FileOutcome } from '../engine/parse/file';
-import { SAMPLE_FILE_NAME, sampleStatementCsv } from '../engine/sample';
 import { createChoiceStore } from '../engine/storage';
 import type { ColumnMapping } from '../engine/types';
 import { EngineClient } from '../worker/client';
 import { FileStatus } from './FileStatus';
-import { Footer } from './Footer';
-import { GuidesPage } from './GuidesPage';
 import { Header } from './Header';
+import { Shell } from './Shell';
 import { useRoute } from './hooks';
 import { Landing } from './Landing';
 import { MappingDialog } from './MappingDialog';
 import { PasswordDialog } from './PasswordDialog';
-import { PrivacyPage } from './PrivacyPage';
-import { Results } from './Results';
 import { initialState, isOpen, needsPerson, reducer, type Entry } from './state';
 
 function safeStorage(): Storage | null {
@@ -23,6 +19,18 @@ function safeStorage(): Storage | null {
   } catch {
     return null;
   }
+}
+
+const Results = lazy(() => import('./Results').then((m) => ({ default: m.Results })));
+const GuidesPage = lazy(() => import('./GuidesPage').then((m) => ({ default: m.GuidesPage })));
+const PrivacyPage = lazy(() => import('./PrivacyPage').then((m) => ({ default: m.PrivacyPage })));
+
+function Loading() {
+  return (
+    <main className="page landing" id="main">
+      <p className="hint" role="status">Loading</p>
+    </main>
+  );
 }
 
 let counter = 0;
@@ -91,7 +99,10 @@ export function App() {
     dispatch({ type: 'add', entries, sample });
   }, []);
 
-  const useSample = () => addFiles([new File([sampleStatementCsv()], SAMPLE_FILE_NAME, { type: 'text/csv' })], true);
+  const useSample = async () => {
+    const { SAMPLE_FILE_NAME, sampleStatementCsv } = await import('../engine/sample');
+    addFiles([new File([sampleStatementCsv()], SAMPLE_FILE_NAME, { type: 'text/csv' })], true);
+  };
 
   const decide = (id: string, decision: Decision | null) => dispatch({ type: 'decide', id, decision });
   const remember = (on: boolean) => {
@@ -142,7 +153,7 @@ export function App() {
     body = (
       <Landing
         onFiles={(f) => addFiles(f)}
-        onSample={useSample}
+        onSample={() => void useSample()}
         problem={
           failed.length > 0 ? (
             <div style={{ marginTop: 24 }}>
@@ -156,28 +167,24 @@ export function App() {
   }
 
   return (
-    <>
-      <a href="#main" className="skip-link" onClick={(e) => {
-          e.preventDefault();
-          const main = document.getElementById('main');
-          main?.setAttribute('tabindex', '-1');
-          main?.focus();
-        }}>
-        Skip to the content
-      </a>
-      <Header />
-      <div tabIndex={-1} style={{ outline: 'none' }}>{body}</div>
-      <Footer />
-      <PasswordDialog
-        entry={pwEntry}
-        onSubmit={(id, password) => dispatch({ type: 'patch', id, patch: { password, state: 'queued' } })}
-        onSkip={(id) => dispatch({ type: 'patch', id, patch: { skippedByUser: true } })}
-      />
-      <MappingDialog
-        entry={mapEntry}
-        onSubmit={(id, mapping: ColumnMapping, flip, dateOrder) => dispatch({ type: 'patch', id, patch: { mapping, flip, dateOrder, state: 'queued' } })}
-        onSkip={(id) => dispatch({ type: 'patch', id, patch: { skippedByUser: true } })}
-      />
-    </>
+    <Shell
+        header={<Header />}
+        dialogs={
+          <>
+            <PasswordDialog
+              entry={pwEntry}
+              onSubmit={(id, password) => dispatch({ type: 'patch', id, patch: { password, state: 'queued' } })}
+              onSkip={(id) => dispatch({ type: 'patch', id, patch: { skippedByUser: true } })}
+            />
+            <MappingDialog
+              entry={mapEntry}
+              onSubmit={(id, mapping: ColumnMapping, flip, dateOrder) => dispatch({ type: 'patch', id, patch: { mapping, flip, dateOrder, state: 'queued' } })}
+              onSkip={(id) => dispatch({ type: 'patch', id, patch: { skippedByUser: true } })}
+            />
+          </>
+        }
+      >
+        <Suspense fallback={<Loading />}>{body}</Suspense>
+      </Shell>
   );
 }

@@ -1,4 +1,4 @@
-import { summarize, type Decision } from './analyze';
+import { summarize, type Decision } from './summary';
 import { formatRupees } from './format';
 import { CADENCE_LABEL, TYPE_LABEL } from './labels';
 import type { Recurring } from './types';
