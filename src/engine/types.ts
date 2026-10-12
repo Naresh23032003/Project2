@@ -16,6 +16,7 @@ export type Normalized = {
   display: string;
   rail: Rail;
   mandate: boolean;
+  person: boolean;
   knownId?: string;
 };
 

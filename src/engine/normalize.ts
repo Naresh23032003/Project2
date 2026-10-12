@@ -108,9 +108,20 @@ function titleCase(tokens: string[]): string {
   return tokens.map((t) => t.charAt(0) + t.slice(1).toLowerCase()).join(' ');
 }
 
+const compiled = new WeakMap<Merchant[], { merchant: Merchant; patterns: RegExp[] }[]>();
+
+function compile(merchants: Merchant[]) {
+  let list = compiled.get(merchants);
+  if (!list) {
+    list = merchants.map((merchant) => ({ merchant, patterns: merchant.patterns.map((p) => new RegExp(p)) }));
+    compiled.set(merchants, list);
+  }
+  return list;
+}
+
 export function normalize(desc: string, merchants: Merchant[] = []): Normalized {
   const raw = desc.toUpperCase().replace(/\s+/g, ' ').trim();
-  if (!raw) return { key: '', display: '', rail: 'other', mandate: false };
+  if (!raw) return { key: '', display: '', rail: 'other', mandate: false, person: false };
   const s = raw.replace(/^(TO|BY) TRANSFER[- ]/, '');
 
   const rail = detectRail(s);
@@ -121,11 +132,13 @@ export function normalize(desc: string, merchants: Merchant[] = []): Normalized 
   else if (rail === 'neft' || rail === 'imps') tokens = transferPayee(s);
   else tokens = cleanText(s);
 
+  const person = rail === 'neft' || rail === 'imps' || /UPI\/P2A\//.test(s) || tokens[0] === 'PHONE';
+
   const text = tokens.join(' ');
-  for (const m of merchants) {
-    if (m.patterns.some((p) => new RegExp(p).test(text))) {
-      return { key: m.id, display: m.name, rail, mandate, knownId: m.id };
+  for (const { merchant, patterns } of compile(merchants)) {
+    if (patterns.some((p) => p.test(text))) {
+      return { key: merchant.id, display: merchant.name, rail, mandate, person: false, knownId: merchant.id };
     }
   }
-  return { key: text.toLowerCase(), display: titleCase(tokens), rail, mandate };
+  return { key: text.toLowerCase(), display: titleCase(tokens), rail, mandate, person };
 }

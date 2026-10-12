@@ -136,3 +136,17 @@ describe('normalize with the known merchant list', () => {
     expect(n.display).toBe('Punjab Store');
   });
 });
+
+describe('person flag', () => {
+  it.each([
+    ['UPI/P2A/233368991817/NOUSHAD B/Kotak', true],
+    ['UPI/412345678904/NA/9876543210@ybl/State Bank Of India', true],
+    ['NEFT DR-HDFC0000001-RAMESH KUMAR-XXXXXXXX1234-NEFT123456', true],
+    ['IMPS-412345678901-RAHUL SHARMA-HDFC-XXXXXXXX1234-RENT', true],
+    ['UPI/P2M/412345678901/NETFLIX COM/Pay to Merchant/Federal Bank', false],
+    ['UPI-NETFLIX-NETFLIX@ICICI-ICIC0000001-412345678901-AUTOPAY', false],
+    ['ACH D- TATA SKY LTD-0012345', false],
+  ])('%s', (desc, person) => {
+    expect(normalize(desc, []).person).toBe(person);
+  });
+});
