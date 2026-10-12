@@ -1,7 +1,7 @@
 # Progress
 
 ## Current phase
-Phase 0 done. Waiting to start Phase 1 (plan).
+Phase 1 done: PLAN.md written. Waiting for plan approval (STOP) and for GitHub push access (403).
 
 ## Done
 - docs/KICKOFF.md, CLAUDE.md, PROGRESS.md saved
