@@ -109,6 +109,7 @@ describe('detect: amounts', () => {
     expect(r).toHaveLength(1);
     expect(r[0]!.priceChanges).toEqual([{ date: '2024-04-05', from: 11900, to: 13900 }]);
     expect(r[0]!.typicalAmount).toBe(13900);
+    expect(r[0]!.reasons.join(' ')).toContain('Price went from ₹119 to ₹139 on 5 Apr 2024');
   });
 
   it('keeps two app store subscriptions with different amounts apart', () => {

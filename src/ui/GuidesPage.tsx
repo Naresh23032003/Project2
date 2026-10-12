@@ -5,7 +5,7 @@ import { formatDate } from '../engine/labels';
 const LABEL = { official: 'Checked', partial: 'Partly checked', unverified: 'Not verified' } as const;
 
 function Badge({ v }: { v: CancelGuide['verification'] }) {
-  const cls = v === 'official' ? 'tag tag-price' : v === 'partial' ? 'tag tag-stopped' : 'tag tag-forgotten';
+  const cls = v === 'official' ? 'tag tag-ok' : v === 'partial' ? 'tag tag-stopped' : 'tag tag-forgotten';
   return <span className={cls}>{LABEL[v]}</span>;
 }
 

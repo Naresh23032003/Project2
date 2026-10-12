@@ -143,16 +143,18 @@ export function Results(p: Props) {
             </p>
           )}
         </div>
-        <div className="savings" data-zero={summary.potentialSavings === 0} data-testid="savings">
-          <p className="savings-label">If you cancel what you've marked</p>
-          <p className="savings-value num" aria-hidden="true">{formatRupees(shownSavings)} a year</p>
-          <p className="sr-only" role="status" data-testid="savings-status">
-            You'd save {formatRupees(summary.potentialSavings)} a year
-          </p>
-          <p className="savings-note">
-            {markedCancel > 0 ? `${markedCancel} marked Cancel.` : 'Mark items Cancel and this number grows.'}
-          </p>
-        </div>
+        {subs.length > 0 && (
+          <div className="savings" data-zero={summary.potentialSavings === 0} data-testid="savings">
+            <p className="savings-label">If you cancel what you've marked</p>
+            <p className="savings-value num" aria-hidden="true">{formatRupees(shownSavings)} a year</p>
+            <p className="sr-only" role="status" data-testid="savings-status">
+              You'd save {formatRupees(summary.potentialSavings)} a year
+            </p>
+            <p className="savings-note">
+              {markedCancel > 0 ? `${markedCancel} marked Cancel.` : 'Mark items Cancel and this number grows.'}
+            </p>
+          </div>
+        )}
       </div>
 
       {failed.length > 0 && (

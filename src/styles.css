@@ -447,3 +447,13 @@ dialog:not(.drawer) { margin: auto; }
 .shell-body { outline: none; }
 .notice-spaced { margin-top: 16px; }
 .footnote { margin-top: 40px; max-width: 62ch; }
+
+@media (max-width: 639px) {
+  .file-list li { flex-wrap: wrap; }
+  .file-list .name { flex: 1 1 60%; min-width: 0; }
+  .file-list .state { flex-basis: 100%; margin-left: 28px; text-align: left; order: 3; }
+}
+
+.tag-ok { background: var(--green-soft); color: var(--green); border: 1px solid var(--green); }
+.prose .guide-list { list-style: none; padding-left: 0; }
+.prose .guide-list > li::marker { content: ''; }

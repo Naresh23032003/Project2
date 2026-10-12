@@ -3,6 +3,7 @@ import { classify } from './classify';
 import { CONFIG as C } from './config';
 import { addDays, addMonths, dayOfMonth, daysBetween } from './dates';
 import { formatRupees, ordinal } from './format';
+import { formatDate } from './labels';
 import { normalize } from './normalize';
 import { jaroWinkler } from './similarity';
 import type { Cadence, Confidence, Merchant, Normalized, Recurring, Txn } from './types';
@@ -269,7 +270,7 @@ function toRecurring(
   const reasons = [describeCadence(cadence, hits, fit)];
   if (priceChanges.length === 0 && stable >= C.sureStableFraction) reasons.push(`Same amount each time (${formatRupees(typical)})`);
   else if (priceChanges.length === 0) reasons.push('The amount changes from charge to charge');
-  for (const p of priceChanges) reasons.push(`Price went from ${formatRupees(p.from)} to ${formatRupees(p.to)} on ${p.date}`);
+  for (const p of priceChanges) reasons.push(`Price went from ${formatRupees(p.from)} to ${formatRupees(p.to)} on ${formatDate(p.date)}`);
   reasons.push(...extraReasons);
 
   const yearlyCost = typical * C.periodsPerYear[cadence];
