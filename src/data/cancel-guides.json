@@ -1,0 +1,758 @@
+{
+  "version": 1,
+  "checked": "2026-10-12",
+  "verificationLevels": {
+    "official": "Steps taken from the company's own help pages.",
+    "partial": "An official page was found but it doesn't cover every step, or sources disagree.",
+    "unverified": "No official page was reachable. Only the general routes are given."
+  },
+  "services": [
+    {
+      "id": "netflix",
+      "name": "Netflix",
+      "merchantIds": [
+        "netflix"
+      ],
+      "verification": "official",
+      "lastVerified": "2026-10-12",
+      "source": "https://help.netflix.com/en/node/407",
+      "steps": [
+        "Sign in to Netflix and open the Manage your membership page.",
+        "Select Cancel.",
+        "Select Finish cancellation. A confirmation email follows."
+      ],
+      "notes": [
+        "You keep access until the end of the billing period.",
+        "Signing out or deleting the app does not cancel anything.",
+        "If there's no Cancel button, Netflix is billed through a partner such as a telecom or app store. Cancel there."
+      ]
+    },
+    {
+      "id": "amazon-prime",
+      "name": "Amazon Prime",
+      "merchantIds": [
+        "amazon-prime"
+      ],
+      "verification": "official",
+      "lastVerified": "2026-10-12",
+      "source": "https://www.amazon.in/gp/help/customer/display.html?nodeId=GTJQ7QZY7QL2HK4Y",
+      "steps": [
+        "Go to Your Account, then Prime membership.",
+        "Select End membership.",
+        "Follow the on-screen steps."
+      ],
+      "notes": [
+        "Annual plans are refunded in full only if you haven't made eligible purchases or used Prime benefits since the latest charge. Monthly plans follow the same rule.",
+        "If you joined through Google Play, cancel under Subscriptions in Google Play.",
+        "A membership bought through a banking or payment app (Bharat Connect) can't be cancelled and isn't refundable."
+      ]
+    },
+    {
+      "id": "hotstar",
+      "name": "JioHotstar (Disney+ Hotstar, JioCinema)",
+      "merchantIds": [
+        "hotstar",
+        "jiocinema"
+      ],
+      "verification": "unverified",
+      "lastVerified": null,
+      "source": null,
+      "steps": [
+        "Open the JioHotstar app or website and look in your account or profile for a subscription, membership or billing section.",
+        "If you see a cancel or turn off auto-renewal option, use it and keep the confirmation email.",
+        "If you can't find one, stop the payment itself. Cancel the UPI autopay mandate or the card standing instruction (see the general guides on this page)."
+      ],
+      "notes": [
+        "We couldn't reach an official JioHotstar help page, so we can't confirm the in-app steps.",
+        "If you paid through Google Play or the App Store, cancel in that store's subscription settings.",
+        "Be careful with support phone numbers on third-party sites. Use only the ones inside the official app."
+      ]
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify",
+      "merchantIds": [
+        "spotify"
+      ],
+      "verification": "official",
+      "lastVerified": "2026-10-12",
+      "source": "https://support.spotify.com/us/article/cancel-premium/",
+      "steps": [
+        "Go to your Spotify account page and open Manage your plan.",
+        "Select Cancel subscription.",
+        "Check that the account page shows the date your plan changes to Free."
+      ],
+      "notes": [
+        "Premium stays until your next billing date.",
+        "On Family and Duo plans only the plan manager can cancel. A member who follows these steps just leaves the plan.",
+        "If a mobile provider or Apple bills you, cancel with them."
+      ],
+      "directUrl": "https://www.spotify.com/account/"
+    },
+    {
+      "id": "youtube-premium",
+      "name": "YouTube Premium",
+      "merchantIds": [
+        "youtube-premium"
+      ],
+      "verification": "official",
+      "lastVerified": "2026-10-12",
+      "source": "https://support.google.com/youtube/answer/6308278",
+      "steps": [
+        "On a computer, open youtube.com/paid_memberships and choose Manage membership, then Deactivate.",
+        "On a phone, tap your profile picture, open Paid memberships, pick the membership and follow the cancel prompts.",
+        "Choose a reason and confirm."
+      ],
+      "notes": [
+        "Benefits continue to the end of the billing cycle. Refunds for the unused part are generally not given.",
+        "If Apple bills you, cancel in your Apple account. If Google Play bills you, cancel in Google Play.",
+        "Annual plans can't be paused."
+      ],
+      "directUrl": "https://www.youtube.com/paid_memberships"
+    },
+    {
+      "id": "google-one",
+      "name": "Google One",
+      "merchantIds": [
+        "google-one"
+      ],
+      "verification": "official",
+      "lastVerified": "2026-10-12",
+      "source": "https://support.google.com/googleone/answer/9056360",
+      "steps": [
+        "On Android, open the Google One app, tap Menu, then Settings, then Cancel membership, and confirm.",
+        "On a computer, open Google One, click Settings, then Cancel membership, and confirm."
+      ],
+      "notes": [
+        "Your files are not deleted, but you drop back to the free 15 GB. Going over it can limit sending and receiving email.",
+        "Benefits last until the end of the billing period.",
+        "If you bought through the App Store or a carrier, cancel there."
+      ]
+    },
+    {
+      "id": "apple",
+      "name": "Apple (iCloud+, App Store subscriptions)",
+      "merchantIds": [
+        "apple"
+      ],
+      "verification": "official",
+      "lastVerified": "2026-10-12",
+      "source": "https://support.apple.com/en-in/118428",
+      "steps": [
+        "Open Settings on your iPhone and tap your name.",
+        "Tap Subscriptions and select the one you want to stop.",
+        "Tap Cancel Subscription. You may need to scroll down to find it."
+      ],
+      "notes": [
+        "If you can't find it, check your Apple receipt to see which Apple Account was charged.",
+        "A family member's subscription can only be cancelled by that family member.",
+        "Carrier billed subscriptions are cancelled with the carrier."
+      ]
+    },
+    {
+      "id": "google-play",
+      "name": "Google Play subscriptions",
+      "merchantIds": [
+        "google-play"
+      ],
+      "verification": "official",
+      "lastVerified": "2026-10-12",
+      "source": "https://support.google.com/googleplay/answer/7018481",
+      "steps": [
+        "Open the Google Play app and go to Subscriptions.",
+        "Select the subscription and tap Cancel.",
+        "Or open play.google.com on a computer and click Manage next to the subscription."
+      ],
+      "notes": [
+        "Uninstalling the app does not cancel the subscription.",
+        "You keep access for the time you've already paid.",
+        "Some apps let you pause instead of cancel."
+      ],
+      "directUrl": "https://play.google.com/store/account/subscriptions"
+    },
+    {
+      "id": "zee5",
+      "name": "ZEE5",
+      "merchantIds": [
+        "zee5"
+      ],
+      "verification": "official",
+      "lastVerified": "2026-10-12",
+      "source": "https://helpcenter.zee5.com/portal/en/kb/articles/how-do-i-cancel-auto-renewal-of-my-subscription",
+      "steps": [
+        "In the Android app, tap Profile, then Control Center, then Plans & Rentals, then Manage Subscription, then Cancel Subscription.",
+        "On the website, open Profile, then Control Center, then Account Management, then My Subscription, and choose Cancel Renewal.",
+        "On iPhone, cancel in Settings under your Apple ID and Subscriptions."
+      ],
+      "notes": [
+        "Cancellation applies at the end of the current billing cycle.",
+        "If you pay by UPI autopay, ZEE5 suggests pausing the mandate rather than cancelling it, because cancelling it switches your service off until you reactivate.",
+        "Deleting your account while a plan is active ends access without a refund."
+      ]
+    },
+    {
+      "id": "sonyliv",
+      "name": "SonyLIV",
+      "merchantIds": [
+        "sonyliv"
+      ],
+      "verification": "official",
+      "lastVerified": "2026-10-12",
+      "source": "https://help.sonyliv.com/categories/cat-subscription/articles/how-can-i-cancel-my-subscription",
+      "steps": [
+        "If you paid by card, UPI or wallet, open My Purchases and click Cancel.",
+        "Pick a reason and submit.",
+        "If you paid through Google Play, Apple or Amazon, cancel in that store's subscription settings."
+      ],
+      "notes": [
+        "On telecom billing in India, SonyLIV's help page says to send an SMS with STOP to 155223 and follow the reply.",
+        "You won't be charged for the next cycle and you can use the pack until the current one ends. There's no refund for partly used periods."
+      ]
+    },
+    {
+      "id": "jio",
+      "name": "Jio (JioAutoPay, plan add-ons)",
+      "merchantIds": [
+        "jio"
+      ],
+      "verification": "partial",
+      "lastVerified": "2026-10-12",
+      "source": "https://www.jio.com/help/faq/mobile/payments/autopay/how-can-i-cancel-jioautopay/",
+      "steps": [
+        "To stop JioAutoPay, open MyJio and look in the JioPay section.",
+        "To drop a bundled OTT app, change to a plan with fewer apps: MyJio, then Plan details, then Change plan. You can change a plan once per billing cycle."
+      ],
+      "notes": [
+        "We found Jio's AutoPay page but couldn't confirm a step by step path for cancelling a single add-on.",
+        "Amazon Prime bundled with some postpaid plans: Jio says to write to care@jio.com to cancel it.",
+        "You can also cancel the UPI mandate in your UPI app."
+      ]
+    },
+    {
+      "id": "airtel",
+      "name": "Airtel (Airtel Thanks AutoPay)",
+      "merchantIds": [
+        "airtel"
+      ],
+      "verification": "partial",
+      "lastVerified": "2026-10-12",
+      "source": "https://www.airtel.in/blog/airtel-app/how-to-disable-auto-pay-in-the-airtel-thanks-app/",
+      "steps": [
+        "Open the Airtel Thanks app and go to the Manage tab.",
+        "Pick the service, open its Autopay option and disable it.",
+        "Or use Payment Settings, then AutoPay, then Deactivate."
+      ],
+      "notes": [
+        "Airtel's own pages don't agree on the exact menu names, so follow what you see in the app.",
+        "Only the person who turned autopay on can turn it off.",
+        "If a mandate remains, cancel it in your UPI app or ask your bank to block it."
+      ]
+    },
+    {
+      "id": "vi",
+      "name": "Vi (Vi Movies & TV, value added services)",
+      "merchantIds": [
+        "vi"
+      ],
+      "verification": "official",
+      "lastVerified": "2026-10-12",
+      "source": "https://www.myvi.in/help-support/faqs/how-to-activate-deactivate-vas-value-added-services",
+      "steps": [
+        "For Vi Movies & TV, open the Vi app, tap your plan and scroll to the bottom of the base plan page.",
+        "Under Active Services tap Manage and use Stop auto renewal.",
+        "For value added services, open Vi App, then Help & Support, and search for VAS."
+      ],
+      "notes": [
+        "Vi lists 155223 for VAS deactivation. Its pages disagree on the SMS number (155223 or 321), so check the app before sending.",
+        "Signing out of the Vi Movies & TV app does not cancel anything."
+      ]
+    },
+    {
+      "id": "swiggy-one",
+      "name": "Swiggy One",
+      "merchantIds": [
+        "swiggy-one"
+      ],
+      "verification": "partial",
+      "lastVerified": "2026-10-12",
+      "source": "https://www.swiggy.com/terms-and-conditions",
+      "steps": [
+        "Open the Swiggy app and look for Swiggy One in your account.",
+        "If you see a way to turn off auto-renewal, use it.",
+        "If not, stop the payment: cancel the UPI autopay mandate or the card standing instruction."
+      ],
+      "notes": [
+        "Swiggy's terms say a membership can't be cancelled during its paid period. Some guides describe turning off auto-renewal in the app, but we couldn't confirm that on an official page.",
+        "A Swiggy One membership that came free with a bank card can't be cancelled either.",
+        "After you stop it, benefits usually stay until the paid period ends."
+      ]
+    },
+    {
+      "id": "zomato-gold",
+      "name": "Zomato Gold",
+      "merchantIds": [
+        "zomato-gold"
+      ],
+      "verification": "unverified",
+      "lastVerified": null,
+      "source": null,
+      "steps": [
+        "Open the Zomato app or website and look in your account or profile for a subscription, membership or billing section.",
+        "If you see a cancel or turn off auto-renewal option, use it and keep the confirmation email.",
+        "If you can't find one, stop the payment itself. Cancel the UPI autopay mandate or the card standing instruction (see the general guides on this page)."
+      ],
+      "notes": [
+        "We couldn't find an official Zomato help page for cancelling Gold, so we can't confirm the in-app steps."
+      ]
+    },
+    {
+      "id": "cult-fit",
+      "name": "cult.fit (cultpass)",
+      "merchantIds": [
+        "cult-fit"
+      ],
+      "verification": "partial",
+      "lastVerified": "2026-10-12",
+      "source": "https://support.tatadigital.com/support/solutions/articles/81000402631-how-do-i-cancel-my-cultpass-elite-monthly-subscription-",
+      "steps": [
+        "Open the Tata Neu app and go to Fitness.",
+        "Open the menu and your profile, then Active packs/subscriptions.",
+        "Select the cult subscription, tap the three dots and choose cancel subscription."
+      ],
+      "notes": [
+        "This is a 2022 article about the ELITE monthly plan. Other plans may differ.",
+        "Cancelling stops next month's renewal and you keep access until the billing date.",
+        "Pausing is another option: open Active Packs in the app, pick the pack and tap pause."
+      ]
+    },
+    {
+      "id": "microsoft-365",
+      "name": "Microsoft 365",
+      "merchantIds": [
+        "microsoft-365"
+      ],
+      "verification": "official",
+      "lastVerified": "2026-10-12",
+      "source": "https://support.microsoft.com/en-us/accounts-billing/subscriptions/cancel-a-microsoft-365-subscription",
+      "steps": [
+        "Sign in at account.microsoft.com/services with the account you bought it on.",
+        "Find the subscription and select Manage.",
+        "Select Turn off recurring billing to stop future charges and keep access until the expiry date, or select Cancel subscription."
+      ],
+      "notes": [
+        "If you bought through Apple, Google Play or a retailer, they manage the billing. Contact them.",
+        "You can cancel a free trial within 30 days and won't be charged."
+      ],
+      "directUrl": "https://account.microsoft.com/services"
+    },
+    {
+      "id": "adobe",
+      "name": "Adobe Creative Cloud",
+      "merchantIds": [
+        "adobe"
+      ],
+      "verification": "official",
+      "lastVerified": "2026-10-12",
+      "source": "https://helpx.adobe.com/account/individual/subscriptions-and-plans/renewals-and-cancellations/cancel-adobe-subscription.html",
+      "steps": [
+        "Sign in at account.adobe.com/plans and select Manage plan.",
+        "Select Cancel your plan and then Continue to cancel.",
+        "Pick a reason, select Continue, then Confirm cancellation."
+      ],
+      "notes": [
+        "Most plans give a full refund within 14 days of purchase.",
+        "After that, an annual plan billed monthly can carry a cancellation fee of 50% of the remaining contract. Annual prepaid plans aren't refunded.",
+        "Plans bought through Apple, Google or Microsoft are cancelled there."
+      ],
+      "directUrl": "https://account.adobe.com/plans"
+    },
+    {
+      "id": "canva",
+      "name": "Canva",
+      "merchantIds": [
+        "canva"
+      ],
+      "verification": "official",
+      "lastVerified": "2026-10-12",
+      "source": "https://www.canva.com/en_gb/help/cancel-canva-plan/",
+      "steps": [
+        "Log in to the right Canva account and open Settings from your profile menu.",
+        "Open Billing and select Cancel plan, then Continue cancellation.",
+        "Pick a reason if you want to and select Cancel subscription."
+      ],
+      "notes": [
+        "You can pause a Pro, Teams or Business plan for up to 3 months instead.",
+        "Plans bought in Google Play or the App Store can't be cancelled inside Canva. Cancel in that store.",
+        "If you change your mind, use Stay on your plan on the Billing page while it's still active."
+      ]
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "merchantIds": [
+        "chatgpt"
+      ],
+      "verification": "official",
+      "lastVerified": "2026-10-12",
+      "source": "https://help.openai.com/en/articles/7232927-how-do-i-cancel-my-chatgpt-plus-subscription",
+      "steps": [
+        "Sign in to ChatGPT and open Settings from your account menu.",
+        "Select Billing.",
+        "Under Cancel plan, select Cancel."
+      ],
+      "notes": [
+        "Cancel at least 24 hours before your next billing date.",
+        "If you subscribed through Apple or Google Play, cancel there. Uninstalling the app does not cancel anything.",
+        "Cancelling stops renewals but doesn't refund earlier charges."
+      ]
+    },
+    {
+      "id": "linkedin-premium",
+      "name": "LinkedIn Premium",
+      "merchantIds": [
+        "linkedin-premium"
+      ],
+      "verification": "official",
+      "lastVerified": "2026-10-12",
+      "source": "https://www.linkedin.com/help/linkedin/answer/a545578",
+      "steps": [
+        "On desktop, open the Me menu, then Premium features, then Manage subscription.",
+        "Choose Cancel subscription and follow the prompts.",
+        "On the app, tap your profile photo, then Premium features, then Manage subscription, then Cancel subscription."
+      ],
+      "notes": [
+        "Premium stays active to the end of the billing period. Cancel at least a day before the next billing date.",
+        "Subscriptions bought on an Apple device are cancelled in Apple's subscription settings.",
+        "Some plans can be refunded within seven days of a charge if you didn't use Premium."
+      ]
+    },
+    {
+      "id": "times-prime",
+      "name": "Times Prime",
+      "merchantIds": [
+        "times-prime"
+      ],
+      "verification": "unverified",
+      "lastVerified": null,
+      "source": null,
+      "steps": [
+        "Open the Times Prime app or website and look in your account or profile for a subscription, membership or billing section.",
+        "If you see a cancel or turn off auto-renewal option, use it and keep the confirmation email.",
+        "If you can't find one, stop the payment itself. Cancel the UPI autopay mandate or the card standing instruction (see the general guides on this page)."
+      ],
+      "notes": [
+        "We couldn't reach an official Times Prime help page from our research tool, so we can't confirm the cancel steps."
+      ]
+    },
+    {
+      "id": "the-hindu",
+      "name": "The Hindu",
+      "merchantIds": [
+        "the-hindu"
+      ],
+      "verification": "unverified",
+      "lastVerified": null,
+      "source": null,
+      "steps": [
+        "Open the The Hindu app or website and look in your account or profile for a subscription, membership or billing section.",
+        "If you see a cancel or turn off auto-renewal option, use it and keep the confirmation email.",
+        "If you can't find one, stop the payment itself. Cancel the UPI autopay mandate or the card standing instruction (see the general guides on this page)."
+      ],
+      "notes": [
+        "We couldn't reach an official help page for The Hindu from our research tool, so we can't confirm the cancel steps."
+      ]
+    },
+    {
+      "id": "audible",
+      "name": "Audible",
+      "merchantIds": [
+        "audible"
+      ],
+      "verification": "official",
+      "lastVerified": "2026-10-12",
+      "source": "https://help.audible.in/s/article/cancel-membership?language=en_IN",
+      "steps": [
+        "Sign in to Audible on a desktop browser.",
+        "Open your username menu and go to your membership details.",
+        "Choose to cancel and confirm. A confirmation email follows."
+      ],
+      "notes": [
+        "Unused credits expire when you cancel. Books you bought with credits stay in your library.",
+        "You can pause once every 12 months for up to 90 days instead.",
+        "If you subscribed through an app store, cancel there."
+      ]
+    },
+    {
+      "id": "tata-play",
+      "name": "Tata Play",
+      "merchantIds": [
+        "tata-play"
+      ],
+      "verification": "partial",
+      "lastVerified": "2026-10-12",
+      "source": "https://www.tataplay.com/dth/help/faqs-binge-combos",
+      "steps": [
+        "Open the Tata Play app or tataplay.com and go to Manage Pack.",
+        "Drop the pack or Binge combo before the renewal date."
+      ],
+      "notes": [
+        "Binge combos renew monthly from your account balance, so dropping the pack before renewal stops that charge.",
+        "We couldn't find a page on turning off autopay or auto recharge. Ask customer care, or cancel the mandate in your UPI app or bank.",
+        "Cancelling the Secure+ camera subscription is done by calling customer care."
+      ]
+    },
+    {
+      "id": "dropbox",
+      "name": "Dropbox",
+      "merchantIds": [
+        "dropbox"
+      ],
+      "verification": "official",
+      "lastVerified": "2026-10-12",
+      "source": "https://help.dropbox.com/plans/downgrade-dropbox-individual-plans",
+      "steps": [
+        "Log in at dropbox.com and open the account menu from your avatar at the bottom left.",
+        "Choose Manage account and scroll to Cancel plan.",
+        "Pick a reason and confirm."
+      ],
+      "notes": [
+        "Your account moves to Dropbox Basic (2 GB) at the end of the billing cycle.",
+        "If you bought on a phone or tablet there's no Cancel plan button. Cancel in the app store."
+      ]
+    },
+    {
+      "id": "jiosaavn",
+      "name": "JioSaavn",
+      "merchantIds": [
+        "jiosaavn"
+      ],
+      "verification": "partial",
+      "lastVerified": "2026-10-12",
+      "source": "https://www.jiosaavn.com/corporate/cancel/google",
+      "steps": [
+        "If you subscribed through Google Play, open Google Play, go to My Subscriptions, pick Saavn and tap Cancel Subscription.",
+        "If you subscribed through Apple, open Settings, then your Apple ID, then Subscriptions, pick Saavn and tap Cancel Subscription."
+      ],
+      "notes": [
+        "JioSaavn's official pages only cover the Google Play and Apple routes.",
+        "You can use Pro until the end of the current billing period."
+      ]
+    },
+    {
+      "id": "gaana",
+      "name": "Gaana",
+      "merchantIds": [
+        "gaana"
+      ],
+      "verification": "unverified",
+      "lastVerified": null,
+      "source": null,
+      "steps": [
+        "Open the Gaana app or website and look in your account or profile for a subscription, membership or billing section.",
+        "If you see a cancel or turn off auto-renewal option, use it and keep the confirmation email.",
+        "If you can't find one, stop the payment itself. Cancel the UPI autopay mandate or the card standing instruction (see the general guides on this page)."
+      ],
+      "notes": [
+        "We couldn't find an official Gaana help page. Many users report that turning off auto-renew in the app didn't always stop charges, so also cancel the mandate with your bank or UPI app.",
+        "Email Gaana support in writing before the renewal date and keep the reply."
+      ]
+    },
+    {
+      "id": "hungama",
+      "name": "Hungama",
+      "merchantIds": [
+        "hungama"
+      ],
+      "verification": "unverified",
+      "lastVerified": null,
+      "source": null,
+      "steps": [
+        "Open the Hungama app or website and look in your account or profile for a subscription, membership or billing section.",
+        "If you see a cancel or turn off auto-renewal option, use it and keep the confirmation email.",
+        "If you can't find one, stop the payment itself. Cancel the UPI autopay mandate or the card standing instruction (see the general guides on this page)."
+      ],
+      "notes": [
+        "We couldn't find an official Hungama help page. Third-party guides say to cancel from your account settings on hungama.com.",
+        "Check your bank or UPI app afterwards to make sure no mandate is left."
+      ]
+    },
+    {
+      "id": "notion",
+      "name": "Notion",
+      "merchantIds": [
+        "notion"
+      ],
+      "verification": "official",
+      "lastVerified": "2026-10-12",
+      "source": "https://www.notion.com/help/plan-downgrade",
+      "steps": [
+        "In the sidebar, click Settings, then Billing, then Change plan.",
+        "Select the Free plan and click Continue.",
+        "Give feedback if asked and click Downgrade."
+      ],
+      "notes": [
+        "The downgrade takes effect at the end of your billing cycle.",
+        "Moving to Free can limit blocks, version history and guests.",
+        "If you bought through the Apple App Store, cancel with Apple."
+      ]
+    }
+  ],
+  "general": {
+    "upiAutopay": {
+      "title": "Stop a UPI autopay mandate",
+      "verification": "official",
+      "lastVerified": "2026-10-12",
+      "sources": [
+        "https://support.google.com/pay/india/answer/10840624",
+        "https://www.phonepe.com/blog/trust-and-safety/how-to-identify-fraudulent-subscription-mandates/",
+        "https://paytm.com/faqs/upi/how-to-cancel-upi-mandate",
+        "https://www.npci.org.in/uploads/UPI_Auto_Pay_Brand_Guidelines_bcabed7282.pdf"
+      ],
+      "apps": [
+        {
+          "name": "Google Pay",
+          "steps": [
+            "Open the app and tap your profile picture.",
+            "Select Autopay and open the Live tab.",
+            "Tap the mandate and choose pause or cancel. Confirm with your UPI PIN."
+          ]
+        },
+        {
+          "name": "PhonePe",
+          "steps": [
+            "Open your PhonePe profile and go to Autopay Settings.",
+            "Select the mandate.",
+            "Revoke it. Blocked funds are released straight away."
+          ]
+        },
+        {
+          "name": "Paytm",
+          "steps": [
+            "Tap your profile icon and open UPI & Payment Settings.",
+            "Open Automatic Payments and pick the mandate.",
+            "Choose Cancel and confirm with your UPI PIN."
+          ]
+        },
+        {
+          "name": "Any other UPI app or your bank app",
+          "steps": [
+            "Look for Autopay, Mandates or Automatic payments in the menu.",
+            "Open the mandate and revoke or cancel it."
+          ]
+        }
+      ],
+      "notes": [
+        "Cancelling the mandate stops the payments. It doesn't always cancel the service. Some services stop working, others send a bill.",
+        "A mandate attached to a loan, EMI or credit line can't always be cancelled in a UPI app. Contact the merchant or lender.",
+        "You get a notice about 24 hours before each debit. That's your window to cancel.",
+        "Uninstalling your UPI app does not cancel mandates.",
+        "If you gave up a phone number, mandates linked to it can keep running. Contact the merchants to revoke them.",
+        "NPCI points to upihelp.npci.org.in for questions about UPI mandates."
+      ]
+    },
+    "cardStandingInstruction": {
+      "title": "Stop a card standing instruction (recurring card payment)",
+      "verification": "partial",
+      "lastVerified": "2026-10-12",
+      "sources": [
+        "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12570&Mode=0",
+        "https://www.hdfcbank.com/personal/faq/faq-inner/gts8mitn-gts8mitr",
+        "https://www.axisbank.com/retail/cards/recurring-payments"
+      ],
+      "steps": [
+        "Find the pre-debit message from your bank. It has a link to opt out of that debit or the whole mandate.",
+        "Or use your bank's NetBanking or app. Look for e-mandates, standing instructions or autopay under your cards.",
+        "Or call your card issuer and ask them to withdraw the e-mandate."
+      ],
+      "banks": [
+        {
+          "name": "HDFC Bank",
+          "steps": [
+            "Log in to NetBanking and open Credit Cards.",
+            "Open the Request menu and choose Autopay De-Register.",
+            "Select the card and click Continue to cancel."
+          ]
+        },
+        {
+          "name": "Axis Bank",
+          "steps": [
+            "Open SIHUB (sihub.in/managesi/axisbank) or Mandate HQ (axis.mandatehq.com).",
+            "Enter your card details and the OTP sent to your registered mobile.",
+            "Open the listed mandate and cancel it."
+          ]
+        }
+      ],
+      "notes": [
+        "RBI's e-mandate rules require your card issuer to give you a way to withdraw a recurring mandate at any time.",
+        "A debit that was already notified before you cancelled can still go through.",
+        "Recurring debits above Rs 15,000 need extra authentication, but most subscriptions are below that.",
+        "We only found verified steps for HDFC Bank and Axis Bank. For other issuers use the general steps above."
+      ]
+    },
+    "downloadStatement": {
+      "title": "Get a CSV or Excel statement from your bank",
+      "lastVerified": "2026-10-12",
+      "banks": [
+        {
+          "id": "hdfc",
+          "name": "HDFC Bank",
+          "verification": "official",
+          "source": "https://www.hdfcbank.com/personal/need-help/net-banking-faqs",
+          "steps": [
+            "Log in to NetBanking and go to Accounts, then Account Statement.",
+            "Pick the account and the period.",
+            "Choose Download. Excel and Delimited are offered next to PDF."
+          ],
+          "note": "Email delivery is PDF only. Delimited is the closest to CSV."
+        },
+        {
+          "id": "sbi",
+          "name": "State Bank of India",
+          "verification": "unverified",
+          "source": null,
+          "steps": [
+            "Log in to OnlineSBI or YONO and open your account statement.",
+            "Look for a download format option and choose CSV or Excel if you see one."
+          ],
+          "note": "We couldn't find an official page for SBI's export formats."
+        },
+        {
+          "id": "icici",
+          "name": "ICICI Bank",
+          "verification": "partial",
+          "source": "https://www.icicibank.com/Personal-Banking/account-deposit/savings-account/statements.page",
+          "steps": [
+            "Log in to Net Banking and go to Bank Accounts, then View Detailed Statement.",
+            "Pick the period and continue.",
+            "Download as CSV if the format option is shown."
+          ],
+          "note": "ICICI's help says savings e-statements come as password protected PDFs. Its Net Banking page lists the detailed statement as downloadable in PDF and CSV."
+        },
+        {
+          "id": "axis",
+          "name": "Axis Bank",
+          "verification": "partial",
+          "source": "https://www.axisbank.com/progress-with-us-articles/digital-banking/how-to-check-bank-statement-online",
+          "steps": [
+            "Log in to Internet Banking and go to Accounts, then View Detailed Statement.",
+            "Pick the account and the duration, then click Get Statement.",
+            "For credit cards: Snapshot, Credit Cards, pick the card, View Statement, then download as PDF, XLS or CSV."
+          ],
+          "note": "We couldn't confirm CSV or Excel for savings accounts on the retail screen. Check the format menu."
+        },
+        {
+          "id": "kotak",
+          "name": "Kotak Mahindra Bank",
+          "verification": "official",
+          "source": "https://www.simple.kotak.com/en/digital-banking/ways-to-bank/net-banking/services-offered.html",
+          "steps": [
+            "Log in to Net Banking and go to Banking, then Savings/Current Account, then View/Download Account Statement.",
+            "Choose a yearly statement for the current or last financial or calendar year.",
+            "Download it as CSV."
+          ],
+          "note": "Yearly statements are CSV. Other periods can be emailed."
+        }
+      ]
+    }
+  }
+}
