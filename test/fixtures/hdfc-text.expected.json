@@ -1,0 +1,209 @@
+{
+ "password": "01011990",
+ "txns": [
+  {
+   "date": "2024-01-05",
+   "desc": "UPI-NETFLIX-NETFLIX@ICICI-ICIC0000001-412345678901-AUTOPAY",
+   "amount": 19900,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-01-06",
+   "desc": "ACH D- HDFC LTD-1234567890 FOR LOAN ACCOUNT 0012345678",
+   "amount": 1250000,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-01-10",
+   "desc": "NEFT CR-HDFC0000001-TECHCORP SOLUTIONS-ASHA RAO-N0012345",
+   "amount": 10000000,
+   "direction": "credit"
+  },
+  {
+   "date": "2024-01-12",
+   "desc": "UPI-SPOTIFY INDIA-SPOTIFYUPI.PAYU@HDFCBANK-HDFC0000001-501234567890-UPI MANDATE",
+   "amount": 11900,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-02-05",
+   "desc": "UPI-NETFLIX-NETFLIX@ICICI-ICIC0000001-412345678902-AUTOPAY",
+   "amount": 19900,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-02-12",
+   "desc": "UPI-SPOTIFY INDIA-SPOTIFYUPI.PAYU@HDFCBANK-HDFC0000001-501234567891-UPI MANDATE",
+   "amount": 11900,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-05",
+   "desc": "UPI-NETFLIX-NETFLIX@ICICI-ICIC0000001-412345678903-AUTOPAY",
+   "amount": 19900,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-12",
+   "desc": "UPI-SPOTIFY INDIA-SPOTIFYUPI.PAYU@HDFCBANK-HDFC0000001-501234567892-UPI MANDATE",
+   "amount": 11900,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-14",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000000-UPI",
+   "amount": 10000,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-15",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000001-UPI",
+   "amount": 10700,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-16",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000002-UPI",
+   "amount": 11400,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-17",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000003-UPI",
+   "amount": 12100,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-18",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000004-UPI",
+   "amount": 12800,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-19",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000005-UPI",
+   "amount": 13500,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-20",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000006-UPI",
+   "amount": 14200,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-21",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000007-UPI",
+   "amount": 14900,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-22",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000008-UPI",
+   "amount": 15600,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-23",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000009-UPI",
+   "amount": 16300,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-24",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000010-UPI",
+   "amount": 17000,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-25",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000011-UPI",
+   "amount": 17700,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-26",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000012-UPI",
+   "amount": 18400,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-27",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000013-UPI",
+   "amount": 19100,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-14",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000014-UPI",
+   "amount": 19800,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-15",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000015-UPI",
+   "amount": 20500,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-16",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000016-UPI",
+   "amount": 21200,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-17",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000017-UPI",
+   "amount": 21900,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-18",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000018-UPI",
+   "amount": 22600,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-19",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000019-UPI",
+   "amount": 23300,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-20",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000020-UPI",
+   "amount": 24000,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-21",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000021-UPI",
+   "amount": 24700,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-22",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000022-UPI",
+   "amount": 25400,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-23",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000023-UPI",
+   "amount": 26100,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-24",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000024-UPI",
+   "amount": 26800,
+   "direction": "debit"
+  },
+  {
+   "date": "2024-03-25",
+   "desc": "UPI-SHARMA KIRANA-SHARMAKIRANA@YBL-HDFC0000001-600000000025-UPI",
+   "amount": 27500,
+   "direction": "debit"
+  }
+ ]
+}

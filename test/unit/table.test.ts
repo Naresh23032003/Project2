@@ -212,6 +212,31 @@ describe('edge cases', () => {
     expect(ok(grid).txns[0]?.date).toBe('2024-04-03');
   });
 
+  it('ignores separator rows made of stars or dashes without counting them as bad', () => {
+    const grid: Grid = [
+      ['Date', 'Narration', 'Debit', 'Credit'],
+      ['********', '********', '********', '********'],
+      ['01/04/2024', 'FIRST', '10', ''],
+      ['--------', '--------', '--------', '--------'],
+      ['02/04/2024', 'SECOND', '20', ''],
+    ];
+    const r = ok(grid);
+    expect(r.skippedRows).toBe(0);
+    expect(r.txns.map((x) => x.desc)).toEqual(['FIRST', 'SECOND']);
+  });
+
+  it('ignores page number lines in the middle of a statement', () => {
+    const grid: Grid = [
+      ['Date', 'Narration', 'Debit', 'Credit'],
+      ['01/04/2024', 'FIRST', '10', ''],
+      ['Page 1 of 2', '', '', ''],
+      ['', 'Page 2 of 2', '', ''],
+      ['02/04/2024', 'SECOND', '20', ''],
+    ];
+    const r = ok(grid);
+    expect(r.txns.map((x) => x.desc)).toEqual(['FIRST', 'SECOND']);
+  });
+
   it('gives each transaction a unique id', () => {
     const grid: Grid = [
       ['Date', 'Narration', 'Debit', 'Credit'],

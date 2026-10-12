@@ -8,10 +8,12 @@ export type TableOptions = {
   flip?: boolean;
 };
 
-type Kind = 'date' | 'valueDate' | 'desc' | 'debit' | 'credit' | 'amount' | 'type' | 'balance' | 'ref';
+export type Kind = 'date' | 'valueDate' | 'desc' | 'debit' | 'credit' | 'amount' | 'type' | 'balance' | 'ref';
 
 const HEADER_SCAN_ROWS = 60;
-const FOOTER = /^(statement summary|opening balance|closing balance|total\b|grand total|end of statement|this is a computer|generated on|page \d)/i;
+const FOOTER = /^(statement summary|opening balance|closing balance|total\b|grand total|end of statement|this is a computer|generated on)/i;
+const SEPARATOR = /^[\s*\-=_.]+$/;
+const PAGE_NOISE = /^page\s+\d+(\s+of\s+\d+)?$/i;
 
 const key = (c: Cell): string => String(c ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
 const text = (c: Cell): string => String(c ?? '').trim();
@@ -21,7 +23,7 @@ const DATE_NAMES = new Set(['date', 'txndate', 'trandate', 'transactiondate', 't
 const DESC_NAMES = new Set(['narration', 'description', 'particulars', 'transactionremarks', 'remarks', 'details', 'transactiondetails', 'transactiondescription', 'narrative', 'descriptionofthetransaction', 'transactionnarration']);
 const TYPE_NAMES = new Set(['drcr', 'crdr', 'debitcredit', 'creditdebit', 'type', 'transactiontype', 'crdrindicator', 'drcrindicator', 'creditdebitindicator']);
 
-function classify(cell: Cell): Kind | null {
+export function headerKind(cell: Cell): Kind | null {
   const k = key(cell);
   if (!k) return null;
   if (/^(valuedate|valuedt|valdate|valuedat)/.test(k)) return 'valueDate';
@@ -44,7 +46,7 @@ function detectMapping(grid: Grid): ColumnMapping | null {
     const row = grid[i] ?? [];
     const found: Partial<Record<Kind, number>> = {};
     row.forEach((cell, col) => {
-      const kind = classify(cell);
+      const kind = headerKind(cell);
       if (kind && found[kind] === undefined) found[kind] = col;
     });
     const date = found.date ?? found.valueDate;
@@ -107,8 +109,9 @@ export function parseGrid(grid: Grid, opts: TableOptions): TableResult {
 
   for (let i = mapping.headerRow + 1; i < grid.length; i++) {
     const row = grid[i] ?? [];
-    if (row.every(isBlank)) continue;
+    if (row.every((c) => isBlank(c) || SEPARATOR.test(text(c)))) continue;
     const firstText = text(row.find((c) => !isBlank(c)));
+    if (PAGE_NOISE.test(firstText)) continue;
     if (pending.length > 0 && FOOTER.test(firstText)) break;
 
     const dateCell = row[mapping.date];

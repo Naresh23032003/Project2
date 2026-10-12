@@ -1,0 +1,35 @@
+{
+ "hdfc.csv": {
+  "count": 56,
+  "bank": "hdfc",
+  "layout": "hdfc"
+ },
+ "sbi.xls": {
+  "count": 43,
+  "bank": "sbi",
+  "layout": "sbi"
+ },
+ "icici.xlsx": {
+  "count": 43,
+  "bank": "icici",
+  "layout": "icici"
+ },
+ "axis.csv": {
+  "count": 26,
+  "bank": "axis",
+  "layout": "axis"
+ },
+ "kotak.xlsx": {
+  "count": 67,
+  "bank": "kotak",
+  "layout": "kotak"
+ },
+ "card.csv": {
+  "count": 22,
+  "layout": "card"
+ },
+ "unknown-format.csv": {
+  "count": 38,
+  "layout": "unknown"
+ }
+}

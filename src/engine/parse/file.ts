@@ -1,9 +1,17 @@
 import type { ColumnMapping, Grid, NeedsMapping, ParsedTable, TableResult } from '../types';
 import { parseCsvText } from './csv';
+import { extractPdfGrid, type PdfJs } from './pdf';
 import { parseWorkbook } from './sheet';
 import { parseGrid } from './table';
 
-export type ParseOptions = { password?: string; mapping?: ColumnMapping; flip?: boolean; dateOrder?: 'dmy' | 'mdy' };
+export type ParseOptions = {
+  password?: string;
+  mapping?: ColumnMapping;
+  flip?: boolean;
+  dateOrder?: 'dmy' | 'mdy';
+  /** The pdf.js module. Passed in so the engine itself stays free of browser and Node specifics. */
+  pdfjs?: PdfJs;
+};
 export type FileOutcome =
   | ParsedTable
   | NeedsMapping
@@ -34,6 +42,12 @@ export async function parseStatement(name: string, data: ArrayBuffer, opts: Pars
     const grids: Grid[] = parseWorkbook(data).filter((g) => g.length > 0);
     if (grids.length === 0) return { status: 'unsupported', reason: 'The workbook has no data.' };
     return bestOf(grids.map((g) => parseGrid(g, table)));
+  }
+  if (/\.pdf$/.test(lower)) {
+    if (!opts.pdfjs) return { status: 'unsupported', reason: 'PDF reading is not available here.' };
+    const pdf = await extractPdfGrid(opts.pdfjs, data, opts.password);
+    if (pdf.status !== 'ok') return pdf;
+    return parseGrid(pdf.grid, table);
   }
   return { status: 'unsupported', reason: 'That file type is not supported. Use CSV, XLS, XLSX or a text PDF.' };
 }
