@@ -69,7 +69,7 @@ export function MappingDialog({ entry, onSubmit, onSkip }: Props) {
           <p>We couldn't recognise this file's layout. Pick the columns and we'll read it. Nothing is sent anywhere.</p>
           <p className="hint">{entry.file.name}</p>
 
-          <div style={{ overflowX: 'auto', border: '1px solid var(--line)', borderRadius: 8 }}>
+          <div role="region" aria-label="Preview of the file, scrolls sideways" tabIndex={0} style={{ overflowX: 'auto', border: '1px solid var(--line)', borderRadius: 8 }}>
             <table style={{ fontSize: '0.8125rem', width: '100%' }} aria-label="First rows of the file">
               <thead>
                 <tr>

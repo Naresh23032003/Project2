@@ -123,8 +123,9 @@ h1, h2, h3, h4 {
   text-wrap: balance;
 }
 p { margin: 0; }
-a { color: var(--red-text); text-underline-offset: 3px; }
+a { color: var(--red-text); text-decoration: underline; text-underline-offset: 3px; }
 a:hover { text-decoration-thickness: 2px; }
+.wordmark, .header-link, .badge-privacy, .btn, .skip-link { text-decoration: none; }
 button { font: inherit; color: inherit; }
 table { border-collapse: collapse; }
 .num { font-variant-numeric: tabular-nums lining-nums; }

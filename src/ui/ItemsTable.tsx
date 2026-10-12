@@ -29,7 +29,7 @@ export function ItemsTable({ items, decisions, freshStamp, sortKey, sortDir, onS
     </th>
   );
   return (
-    <div className="table-wrap">
+    <div className="table-wrap" role="region" aria-label="Recurring charges, scrolls sideways on small screens" tabIndex={0}>
       <table className="items" data-testid="items-table">
         <thead>
           <tr>
